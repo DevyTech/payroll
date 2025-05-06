@@ -1,0 +1,1 @@
+<a class="nav-link <?= ($page == 'form-employee') ? 'active' : '' ?>" href="index.php?page=form-employee">
