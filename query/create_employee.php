@@ -51,9 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 base_salary = '$salary',
                 bank_account_number = '$bankAccount'";
         $sql = mysqli_query($conn, $query);
-        if (!$sql) {
-            header("Location:../index.php?page=form-employee&submit=failed");
+        if ($sql) {
+            header("Location:../index.php?page=form-employee&submit=success");
         }
-        header("Location:../index.php?page=form-employee&submit=success");
     }
 }

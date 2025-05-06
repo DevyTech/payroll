@@ -47,7 +47,34 @@
                 showConfirmButton: false,
                 timer: 1500
             });
+            <?php
+        }
+    } elseif (isset($_GET['submitattendence'])) {
+        $status = $_GET['submitattendence'];
+        switch ($status) {
+            case 'success':
+            ?>
+                Swal.fire({
+                    icon: "success",
+                    title: "Attendence data has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            <?php
+                break;
+            case 'failed':
+            ?>
+                Swal.fire({
+                    icon: "error",
+                    title: "Attendence data already exists",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
     <?php
+                break;
+            default:
+                # code...
+                break;
         }
     }
 

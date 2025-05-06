@@ -48,7 +48,6 @@ $format = "Rp " . number_format($salary, 0, '.', '.');
                 case 'employee':
                     include './layout/hr/employee.php';
                     break;
-                case 'dashboard':
                 default:
                     include './pages-error-404.php';
                     break;
