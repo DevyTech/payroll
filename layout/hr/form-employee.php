@@ -24,8 +24,8 @@
                             <input type="text" class="form-control" id="inputNanme4" name="name" required autocomplete="off">
                         </div>
                         <div class="col-12">
-                            <label for="inputIdNumber" class="form-label">ID Number</label>
-                            <input type="number" class="form-control" id="inputIdNumber" name="idNumber" required>
+                            <label for="inputNik" class="form-label">NIK</label>
+                            <input type="text" pattern="\d*" maxlength="16" inputmode="numeric" class="form-control" id="inputNik" name="nik" required autocomplete="off">
                         </div>
                         <div class="col-12">
                             <label for="inputAddress" class="form-label">Address</label>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="col-12">
                             <label for="inputContact" class="form-label">Contact</label>
-                            <input type="number" class="form-control" id="inputContact" name="contact" required>
+                            <input type="text" pattern="\d*" maxlength="12" inputmode="numeric" class="form-control" id="inputContact" name="contact" required autocomplete="off">
                         </div>
                     </div><!-- Vertical Form -->
 
@@ -78,7 +78,7 @@
                     <div class="row g-3">
                         <div class="col-12">
                             <label for="inputNpwp" class="form-label">NPWP</label>
-                            <input type="number" class="form-control" id="inputNpwp" name="npwp" required>
+                            <input type="text" pattern="\d*" maxlength="16" inputmode="numeric" class="form-control" id="inputNpwp" name="npwp" required autocomplete="off">
                         </div>
                         <div class="col-12">
                             <label for="inputDependent" class="form-label">Dependent Status</label>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="col-12">
                             <label for="inputBpjs" class="form-label">BPJS Number</label>
-                            <input type="number" class="form-control" id="inputBpjs" name="bpjs" required>
+                            <input type="text" pattern="\d*" maxlength="13" inputmode="numeric" class="form-control" id="inputBpjs" name="bpjs" required autocomplete="off">
                         </div>
                     </div><!-- Vertical Form -->
 
@@ -126,7 +126,7 @@
                         </div>
                         <div class="col-12">
                             <label for="inputEmployeeId" class="form-label">Employee ID</label>
-                            <input type="number" class="form-control field-number" id="inputEmployeeId" name="employeeId" required>
+                            <input type="text" pattern="\d*" maxlength="16" inputmode="numeric" class="form-control field-number" id="inputEmployeeId" name="employeeId" required autocomplete="off">
                         </div>
                     </div><!-- Vertical Form -->
 
@@ -145,7 +145,7 @@
                         </div>
                         <div class="col-12">
                             <label for="inputBank" class="form-label">Bank Account Number</label>
-                            <input type="number" class="form-control field-number" id="inputBank" name="bankAccount" required>
+                            <input type="text" pattern="\d*" maxlength="16" inputmode="numeric" class="form-control field-number" id="inputBank" name="bankAccount" required autocomplete="off">
                         </div>
                     </div><!-- Vertical Form -->
 

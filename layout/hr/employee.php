@@ -34,7 +34,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>ID Number</th>
+                                    <th>NIK</th>
                                     <th>Address</th>
                                     <th>Date Of Birth</th>
                                     <th>Gender</th>
@@ -60,7 +60,7 @@
                                     <tr>
                                         <th><?php echo $countRows++; ?></th>
                                         <td><?php echo $row['name']; ?></td>
-                                        <td><?php echo $row['id_number']; ?></td>
+                                        <td><?php echo $row['nik']; ?></td>
                                         <td><?php echo $row['address']; ?></td>
                                         <td><?php echo $row['date_of_birth']; ?></td>
                                         <td><?php echo $row['gender']; ?></td>

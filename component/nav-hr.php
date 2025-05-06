@@ -116,12 +116,12 @@
       </a>
       <ul id="payroll-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="#">
+          <a href="?page=pay-employee-salaries">
             <i class="bi bi-circle"></i><span>Pay Employee Salaries</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="?page=payroll-report">
             <i class="bi bi-circle"></i><span>Payroll Report</span>
           </a>
         </li>

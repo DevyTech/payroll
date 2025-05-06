@@ -8,7 +8,7 @@
     </nav>
 </div><!-- End Page Title -->
 <section class="section">
-    <form class="row" action="#" method="post">
+    <form class="row" action="./query/create_attendence.php" method="post">
         <div class="col-lg-7">
             <div class="card">
                 <div class="card-body">
@@ -17,7 +17,7 @@
                     <div class="row mb-3">
                         <label for="inputEmployee" class="col-sm-2 col-form-label">Employee Name</label>
                         <div class="col-sm-10">
-                            <select class="form-select" id="inputEmployee" name="employee" required>
+                            <select class="form-select" id="inputEmployee" name="employeeId" required>
                                 <option selected hidden>Select Employee</option>
                                 <?php
                                 foreach ($dataEmployee as $row) {
@@ -32,15 +32,16 @@
                     <div class="row mb-3">
                         <label for="inputEntry" class="col-sm-2 col-form-label">Entry Time</label>
                         <div class="col-sm-10">
-                            <input type="time" class="form-control" id="inputEntry">
+                            <input type="time" class="form-control" id="inputEntry" name="entry" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputExit" class="col-sm-2 col-form-label">Exit Time</label>
                         <div class="col-sm-10">
-                            <input type="time" class="form-control" id="inputExit">
+                            <input type="time" class="form-control" id="inputExit" name="exit" required>
                         </div>
                     </div>
+                    <input type="submit" class="btn btn-primary">
                 </div>
             </div>
 

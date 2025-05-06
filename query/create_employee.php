@@ -8,7 +8,7 @@ var_dump($_POST);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get Data from $_POST method
     $name = $_POST['name'];
-    $id = filter_var($_POST['idNumber'], FILTER_VALIDATE_INT);
+    $nik = filter_var($_POST['nik'], FILTER_VALIDATE_INT);
     $address = $_POST['address'];
     $dateOfBirth = $_POST['dateBirth'];
     $gender = $_POST['gender'];
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $bankAccount = filter_var($_POST['bankAccount'], FILTER_VALIDATE_INT);
 
     // Check if data already exist;
-    $scope = mysqli_query($conn, "SELECT * FROM employee_table WHERE name = '$name' OR id_number = '$id'");
+    $scope = mysqli_query($conn, "SELECT * FROM employee_table WHERE name = '$name' OR nik = '$nik'");
     $count = mysqli_num_rows($scope);
 
     if ($count > 0) {
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $query = "INSERT INTO employee_table SET
                 name = '$name',
-                id_number = '$id',
+                nik = '$nik',
                 address = '$address',
                 date_of_birth = '$dateOfBirth',
                 gender = '$gender',
@@ -51,8 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 base_salary = '$salary',
                 bank_account_number = '$bankAccount'";
         $sql = mysqli_query($conn, $query);
-        if ($sql) {
-            header("Location:../index.php?page=form-employee&submit=success");
+        if (!$sql) {
+            header("Location:../index.php?page=form-employee&submit=failed");
         }
+        header("Location:../index.php?page=form-employee&submit=success");
     }
 }

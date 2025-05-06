@@ -36,6 +36,9 @@ $format = "Rp " . number_format($salary, 0, '.', '.');
             include './layout/admin/dashboard.php';
         } elseif ($role == 'human resource') {
             switch ($page) {
+                case 'dashboard':
+                    include './layout/hr/dashboard.php';
+                    break;
                 case 'attendence':
                     include './layout/hr/attendence.php';
                     break;
@@ -47,7 +50,7 @@ $format = "Rp " . number_format($salary, 0, '.', '.');
                     break;
                 case 'dashboard':
                 default:
-                    include './layout/hr/dashboard.php';
+                    include './pages-error-404.php';
                     break;
             }
         } else {
