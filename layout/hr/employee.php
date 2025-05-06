@@ -1,9 +1,3 @@
-<?php
-$dataEmployee = mysqli_query($conn, "SELECT * FROM employee_table");
-$countDataEmployee = mysqli_num_rows($dataEmployee);
-$salary = 4000000;
-$format = "Rp " . number_format($salary, 0, '.', '.');
-?>
 <div class="pagetitle">
     <h1>Employee</h1>
     <nav>
@@ -18,6 +12,7 @@ $format = "Rp " . number_format($salary, 0, '.', '.');
 <style>
     table {
         font-size: small;
+        text-align: center;
     }
 
     td,
@@ -34,7 +29,7 @@ $format = "Rp " . number_format($salary, 0, '.', '.');
                     <h5 class="card-title">Employee Data</h5>
                     <div class="table-responsive">
                         <!-- Table with stripped rows -->
-                        <table class="table table-striped">
+                        <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>#</th>

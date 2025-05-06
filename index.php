@@ -8,6 +8,13 @@ $name = $_SESSION['uname'];
 $role = $_SESSION['ulevel'];
 
 $page = $_GET['page'] ?? 'dashboard';
+
+
+// Employee Tables
+$dataEmployee = mysqli_query($conn, "SELECT * FROM employee_table");
+$countDataEmployee = mysqli_num_rows($dataEmployee);
+$salary = 4000000;
+$format = "Rp " . number_format($salary, 0, '.', '.');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +36,9 @@ $page = $_GET['page'] ?? 'dashboard';
             include './layout/admin/dashboard.php';
         } elseif ($role == 'human resource') {
             switch ($page) {
+                case 'attendence':
+                    include './layout/hr/attendence.php';
+                    break;
                 case 'form-employee':
                     include './layout/hr/form-employee.php';
                     break;
