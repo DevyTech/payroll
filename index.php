@@ -51,6 +51,12 @@ $format = "Rp " . number_format($salary, 0, '.', '.');
                 case 'pay-employee-salaries':
                     include './layout/hr/pay-salaries.php';
                     break;
+                case 'aproved-salary':
+                    include './layout/hr/aproved-salary.php';
+                    break;
+                case 'payroll-report':
+                    include './layout/hr/payroll-report.php';
+                    break;
                 default:
                     include './pages-error-404.php';
                     break;

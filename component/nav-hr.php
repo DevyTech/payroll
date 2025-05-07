@@ -121,6 +121,11 @@
           </a>
         </li>
         <li>
+          <a href="?page=aproved-salary">
+            <i class="bi bi-circle"></i><span>Aproved Salary</span>
+          </a>
+        </li>
+        <li>
           <a href="?page=payroll-report">
             <i class="bi bi-circle"></i><span>Payroll Report</span>
           </a>

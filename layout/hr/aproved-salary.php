@@ -4,7 +4,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="?page=dashboard">Home</a></li>
             <li class="breadcrumb-item">Payroll</li>
-            <li class="breadcrumb-item active">Payroll Employee Salaries</li>
+            <li class="breadcrumb-item active">Aproved Salary</li>
         </ol>
     </nav>
 </div><!-- End Page Title -->
@@ -27,7 +27,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Employee Salary</h5>
+                    <h5 class="card-title">Aproved Employee Salary</h5>
                     <div class="table-responsive">
                         <!-- Table with stripped rows -->
                         <table class="table table-striped table-bordered">
@@ -63,7 +63,7 @@
                                     <td>250,000</td>
                                     <td>310,000</td>
                                     <td>4,690,000</td>
-                                    <td><a href="#" class="btn btn-primary">Salary Request</a></td>
+                                    <td><a href="#" class="btn btn-success">Pay Salary</a></td>
                                 </tr>
                                 <tr>
                                     <th>1</th>
@@ -77,7 +77,7 @@
                                     <td>250,000</td>
                                     <td>310,000</td>
                                     <td>4,690,000</td>
-                                    <td><a href="#" class="btn btn-warning disabled">Request Sending</a></td>
+                                    <td><a href="#" class="btn btn-success">Pay Salary</a></td>
                                 </tr>
                             </tbody>
                             <!-- <tbody style="text-transform: capitalize;">
