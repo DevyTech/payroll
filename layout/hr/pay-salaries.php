@@ -12,7 +12,7 @@
                         ?>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="<?php echo "heading" . $i; ?>">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo "collapse" . $i; ?>" aria-expanded="true" aria-controls="<?php echo "collapse" . $i; ?>">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo "collapse" . $i; ?>" aria-expanded="false" aria-controls="<?php echo "collapse" . $i; ?>">
                                         Accordion Item #1
                                     </button>
                                 </h2>
@@ -44,7 +44,7 @@
                         ?>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="<?php echo "heading" . $i; ?>">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo "collapse" . $i; ?>" aria-expanded="true" aria-controls="<?php echo "collapse" . $i; ?>">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo "collapse" . $i; ?>" aria-expanded="false" aria-controls="<?php echo "collapse" . $i; ?>">
                                         Accordion Item #1
                                     </button>
                                 </h2>
