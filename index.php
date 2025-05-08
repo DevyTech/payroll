@@ -33,7 +33,17 @@ $format = "Rp " . number_format($salary, 0, '.', '.');
     <main id="main" class="main">
         <?php
         if ($role == 'admin') {
-            include './layout/admin/dashboard.php';
+            switch ($page) {
+                case 'dashboard':
+                    include './layout/admin/dashboard.php';
+                    break;
+                case 'user':
+                    include './layout/admin/form-user.php';
+                    break;
+                default:
+                    include './pages-error-404.php';
+                    break;
+            }
         } elseif ($role == 'human resource') {
             switch ($page) {
                 case 'dashboard':
@@ -48,7 +58,7 @@ $format = "Rp " . number_format($salary, 0, '.', '.');
                 case 'employee':
                     include './layout/hr/employee.php';
                     break;
-                case 'pay-employee-salaries':
+                case 'employee-salary':
                     include './layout/hr/pay-salaries.php';
                     break;
                 case 'aproved-salary':

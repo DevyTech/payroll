@@ -4,7 +4,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="?page=dashboard">Home</a></li>
             <li class="breadcrumb-item">Payroll</li>
-            <li class="breadcrumb-item active">Payroll Employee Salaries</li>
+            <li class="breadcrumb-item active">Employee Salary</li>
         </ol>
     </nav>
 </div><!-- End Page Title -->
@@ -39,6 +39,7 @@
                                     <th rowspan="2">Position</th>
                                     <th rowspan="2">Status</th>
                                     <th rowspan="2">Base Salary</th>
+                                    <th rowspan="2">Working Days</th>
                                     <th colspan="3">Deduction</th>
                                     <th rowspan="2">Total Deductions</th>
                                     <th rowspan="2">Amount</th>
@@ -58,6 +59,7 @@
                                     <td>Head Of Accounting Department</td>
                                     <td>Permanent</td>
                                     <td>5,000,000</td>
+                                    <td>22 Days</td>
                                     <td>10,000</td>
                                     <td>50,000</td>
                                     <td>250,000</td>
@@ -72,6 +74,7 @@
                                     <td>Head Of Accounting Department</td>
                                     <td>Permanent</td>
                                     <td>5,000,000</td>
+                                    <td>22 Days</td>
                                     <td>10,000</td>
                                     <td>50,000</td>
                                     <td>250,000</td>

@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['employeeId'];
     $entry = $_POST['entry'];
     $exit = $_POST['exit'];
+    $dateNow = date('Y-m-d');
 
     // Check if data already exist;
     $scope = mysqli_query($conn, "SELECT * FROM attendence_table WHERE employee_id = '$id'");
@@ -21,7 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query = "INSERT INTO attendence_table SET
                 employee_id = '$id',
                 entry_time = '$entry',
-                exit_time = '$exit'";
+                exit_time = '$exit',
+                date = '$dateNow'";
         $sql = mysqli_query($conn, $query);
         if ($sql) {
             header("Location:../index.php?page=attendence&submitattendence=success");

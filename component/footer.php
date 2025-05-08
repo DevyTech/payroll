@@ -70,6 +70,33 @@
                     showConfirmButton: false,
                     timer: 1500
                 });
+            <?php
+                break;
+            default:
+                # code...
+                break;
+        }
+    } elseif (isset($_GET['submituser'])) {
+        $status = $_GET['submituser'];
+        switch ($status) {
+            case 'success':
+            ?>
+                Swal.fire({
+                    icon: "success",
+                    title: "New user has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            <?php
+                break;
+            case 'failed':
+            ?>
+                Swal.fire({
+                    icon: "error",
+                    title: "User already exists",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
     <?php
                 break;
             default:
