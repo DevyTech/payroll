@@ -1,10 +1,9 @@
 <div class="pagetitle">
-    <h1>Employee</h1>
+    <h1>User</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="?page=dashboard">Home</a></li>
-            <li class="breadcrumb-item">Employee</li>
-            <li class="breadcrumb-item active">Form Employee</li>
+            <li class="breadcrumb-item active">Form User</li>
         </ol>
     </nav>
 </div><!-- End Page Title -->

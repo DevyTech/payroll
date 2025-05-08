@@ -15,6 +15,10 @@ $dataEmployee = mysqli_query($conn, "SELECT * FROM employee_table");
 $countDataEmployee = mysqli_num_rows($dataEmployee);
 $salary = 4000000;
 $format = "Rp " . number_format($salary, 0, '.', '.');
+
+// User Table
+$dataUsers = mysqli_query($conn, "SELECT * FROM users_table");
+$countDataUsers = mysqli_num_rows($dataUsers);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +43,9 @@ $format = "Rp " . number_format($salary, 0, '.', '.');
                     break;
                 case 'user':
                     include './layout/admin/form-user.php';
+                    break;
+                case 'users':
+                    include './layout/admin/users.php';
                     break;
                 default:
                     include './pages-error-404.php';
