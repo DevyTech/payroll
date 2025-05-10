@@ -15,21 +15,26 @@ $dataEmployee = mysqli_query($conn, "SELECT * FROM employee_table");
 $countDataEmployee = mysqli_num_rows($dataEmployee);
 
 // Attendence Tables Join Employee
-$dataSalary = mysqli_query($conn, "SELECT employee_table.id,
-                                        employee_table.name,
-                                        employee_table.nik,
-                                        employee_table.position,
-                                        employee_table.employement_type,
-                                        employee_table.base_salary,
-                                        employee_table.dependent_status,
-                                        category_table.id,
-                                        category_table.pktp,
-                                        COUNT(attendence_table.employee_id) AS days_work
-                                        FROM employee_table
-                                        JOIN attendence_table ON employee_table.id = attendence_table.employee_id
-                                        JOIN category_table ON employee_table.dependent_status = category_table.id
-                                        GROUP BY attendence_table.employee_id");
-$countDataSalary = mysqli_num_rows($dataSalary);
+$dataSalary = mysqli_query($conn, "SELECT et.id,
+                                        et.name,
+                                        et.nik,
+                                        et.position,
+                                        et.employement_type,
+                                        et.base_salary,
+                                        et.dependent_status,
+                                        st.bpjs_deduction,
+                                        st.jht_deduction,
+                                        st.pph_deduction,
+                                        st.total_deduction,
+                                        st.amount,
+                                        COUNT(at.employee_id) AS days_work
+                                    FROM
+                                        employee_table et
+                                    LEFT JOIN
+                                        attendence_table at ON et.id = at.employee_id
+                                    JOIN
+                                        Salary_table st ON et.nik = st.nik
+                                    GROUP BY et.id");
 
 // User Table
 $dataUsers = mysqli_query($conn, "SELECT * FROM users_table");
@@ -88,6 +93,21 @@ $countDataUsers = mysqli_num_rows($dataUsers);
                     break;
                 case 'payroll-report':
                     include './layout/hr/payroll-report.php';
+                    break;
+                default:
+                    include './pages-error-404.php';
+                    break;
+            }
+        } elseif ($role == 'manager') {
+            switch ($page) {
+                case 'dashboard':
+                    include './layout/manager/dashboard.php';
+                    break;
+                case 'employee':
+                    include './layout/manager/employee.php';
+                    break;
+                case 'salary-request':
+                    include './layout/manager/salary-request.php';
                     break;
                 default:
                     include './pages-error-404.php';

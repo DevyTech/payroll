@@ -55,22 +55,6 @@
                                 <?php
                                 $countRows = 1;
                                 foreach ($dataSalary as $row) {
-                                    $tax_rate;
-                                    $baseSalary = $row['base_salary'];
-                                    $bpjs = $baseSalary * 0.01;
-                                    $jht = $baseSalary * 0.05;
-                                    $dependent = $row['dependent_status'];
-                                    $pktp = $row['pktp'];
-                                    if ($baseSalary <= 6000000) {
-                                        $tax_rate = 0.05;
-                                    } elseif ($baseSalary == 250000000) {
-                                        $tax_rate = 0.015;
-                                    } elseif ($baseSalary == 500000000) {
-                                        $tax_rate = 0.025;
-                                    } elseif ($baseSalary > 500000000) {
-                                        $tax_rate = 0.035;
-                                    }
-                                    $pph = (((($baseSalary - $bpjs - $jht) * 12) - $pktp) * $tax_rate) / 12;
                                 ?>
                                     <tr>
                                         <th><?php echo $countRows++; ?></th>
@@ -78,14 +62,14 @@
                                         <td><?php echo $row['nik']; ?></td>
                                         <td><?php echo $row['position']; ?></td>
                                         <td><?php echo $row['employement_type']; ?></td>
-                                        <td><?php echo number_format($baseSalary, 0, '.', '.'); ?></td>
+                                        <td><?php echo number_format($row['base_salary'], 0, '.', '.'); ?></td>
                                         <td><?php echo $row['days_work'] . " Days"; ?></td>
-                                        <td><?php echo number_format($bpjs, 0, '.', '.'); ?></td>
-                                        <td><?php echo number_format($jht, 0, '.', '.'); ?></td>
-                                        <td><?php echo number_format($pph, 0, '.', '.'); ?></td>
-                                        <td><?php echo number_format($bpjs + $jht + $pph, 0, '.', '.'); ?></td>
-                                        <td><?php echo number_format($baseSalary - $bpjs - $jht - $pph, 0, '.', '.'); ?></td>
-                                        <td><a href="#" class="btn btn-success">Pay Salary</a></td>
+                                        <td><?php echo number_format($row['bpjs_deduction'], 0, '.', '.'); ?></td>
+                                        <td><?php echo number_format($row['jht_deduction'], 0, '.', '.'); ?></td>
+                                        <td><?php echo number_format($row['pph_deduction'], 0, '.', '.'); ?></td>
+                                        <td><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
+                                        <td><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
+                                        <td><a href="#" class="btn btn-primary">Salary Request</a></td>
                                     </tr>
                                 <?php
                                 }

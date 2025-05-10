@@ -86,47 +86,18 @@
     </li><!-- End Dashboard Nav -->
 
     <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i>
-        <span>Attendence</span>
+      <a class="nav-link" href="?page=employee">
+        <i class="bi bi-person-vcard"></i>
+        <span>Employee Data</span>
       </a>
-    </li><!-- End Attendence Nav -->
+    </li><!-- End Employee Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-person-vcard"></i></i><span>Employee</span><i class="bi bi-chevron-down ms-auto"></i>
+      <a class="nav-link" href="?page=salary-request">
+        <i class="bi bi-journal-text"></i>
+        <span>Salary Request</span>
       </a>
-      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="index.php?page=form-employee">
-            <i class="bi bi-circle"></i><span>Form Employee</span>
-          </a>
-        </li>
-        <li>
-          <a href="index.php?page=employee">
-            <i class="bi bi-circle"></i><span>Employee Data</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Employees Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-journal-text"></i><span>Payroll</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="#">
-            <i class="bi bi-circle"></i><span>Pay Employee Salaries</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="bi bi-circle"></i><span>Payroll Report</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Forms Nav -->
+    </li><!-- End Salary Nav -->
 
   </ul>
 

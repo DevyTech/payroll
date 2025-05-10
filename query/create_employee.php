@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($count > 0) {
         header("Location:../index.php?page=form-employee&submit=failed");
     } else {
-        $query = "INSERT INTO employee_table SET
+        $queryEmployee = "INSERT INTO employee_table SET
                 name = '$name',
                 nik = '$nik',
                 address = '$address',
@@ -50,9 +50,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 bpjs_number = '$bpjs',
                 base_salary = '$salary',
                 bank_account_number = '$bankAccount'";
-        $sql = mysqli_query($conn, $query);
-        if ($sql) {
-            header("Location:../index.php?page=form-employee&submit=success");
+        $sqlEmployee = mysqli_query($conn, $queryEmployee);
+        if ($sqlEmployee) {
+            $dataCategory = mysqli_fetch_object(mysqli_query($conn, "SELECT * FROM category_table WHERE id = '$dependent'"));
+            $tax_rate;
+            $bpjsDeduction = $salary * 0.01;
+            $jhtDeduction = $salary * 0.05;
+            $pktp = $dataCategory->pktp;
+            if ($salary <= 60000000) {
+                $tax_rate = 0.05;
+            } elseif ($salary == 250000000) {
+                $tax_rate = 0.015;
+            } elseif ($salary == 500000000) {
+                $tax_rate = 0.025;
+            } elseif ($salary > 500000000) {
+                $tax_rate = 0.035;
+            }
+            $pph = (((($salary - $bpjsDeduction - $jhtDeduction) * 12) - $pktp) * $tax_rate) / 12;
+            $totalDeduction = $bpjsDeduction + $jhtDeduction + $pph;
+            $amount = $salary - $bpjsDeduction - $jhtDeduction - $pph;
+            $querySalary = "INSERT INTO salary_table SET
+                            nik = '$nik',
+                            bpjs_deduction = '$bpjsDeduction',
+                            jht_deduction='$jhtDeduction',
+                            pph_deduction='$pph',
+                            total_deduction='$totalDeduction',
+                            amount='$amount'";
+            $sqlSalary = mysqli_query($conn, $querySalary);
+            if ($sqlSalary) {
+                header("Location:../index.php?page=form-employee&submit=success");
+            }
         }
     }
 }
