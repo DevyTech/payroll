@@ -46,9 +46,9 @@
                                     <th rowspan="2">Action</th>
                                 </tr>
                                 <tr>
-                                    <th>PPH</th>
                                     <th>BPJS</th>
                                     <th>JHT</th>
+                                    <th>PPH</th>
                                 </tr>
                             </thead>
                             <tbody style="text-transform: capitalize;">
@@ -69,7 +69,9 @@
                                         <td><?php echo number_format($row['pph_deduction'], 0, '.', '.'); ?></td>
                                         <td><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
                                         <td><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
-                                        <td><a href="#" class="btn btn-primary">Salary Request</a></td>
+                                        <td>
+                                            <a href="#" class="btn btn-primary">Salary Request</a>
+                                        </td>
                                     </tr>
                                 <?php
                                 }

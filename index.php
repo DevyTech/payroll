@@ -27,6 +27,7 @@ $dataSalary = mysqli_query($conn, "SELECT et.id,
                                         st.pph_deduction,
                                         st.total_deduction,
                                         st.amount,
+                                        st.status,
                                         COUNT(at.employee_id) AS days_work
                                     FROM
                                         employee_table et

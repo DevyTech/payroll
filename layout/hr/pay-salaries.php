@@ -69,7 +69,28 @@
                                         <td><?php echo number_format($row['pph_deduction'], 0, '.', '.'); ?></td>
                                         <td><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
                                         <td><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
-                                        <td><a href="#" class="btn btn-primary">Salary Request</a></td>
+                                        <td>
+                                            <?php
+                                            switch ($row['status']) {
+                                                case '1':
+                                            ?>
+                                                    <form action="./query/request_salary.php" method="post">
+                                                        <input type="text" name="nik" value="<?php echo $row['nik']; ?>" hidden>
+                                                        <input type="submit" class="btn btn-primary" value="Salary Request"></input>
+                                                    </form>
+                                                <?php
+                                                    break;
+                                                case '2':
+                                                ?>
+                                                    <button class="btn btn-warning" disabled>Waiting For Approval</button>
+                                            <?php
+                                                    break;
+                                                default:
+                                                    # code...
+                                                    break;
+                                            }
+                                            ?>
+                                        </td>
                                     </tr>
                                 <?php
                                 }
