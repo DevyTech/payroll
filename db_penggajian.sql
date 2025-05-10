@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 08 Bulan Mei 2025 pada 12.16
+-- Waktu pembuatan: 10 Bulan Mei 2025 pada 18.46
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -35,13 +35,34 @@ CREATE TABLE `attendence_table` (
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data untuk tabel `attendence_table`
+-- Struktur dari tabel `category_table`
 --
 
-INSERT INTO `attendence_table` (`id`, `employee_id`, `entry_time`, `exit_time`, `date`) VALUES
-(2, 9, '08:01:00', '19:02:00', '2025-05-08'),
-(3, 10, '06:02:00', '19:03:00', '2025-05-08');
+CREATE TABLE `category_table` (
+  `id` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `pktp` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data untuk tabel `category_table`
+--
+
+INSERT INTO `category_table` (`id`, `pktp`) VALUES
+('K/0', '58500000'),
+('K/1', '63000000'),
+('K/1/0', '112500000'),
+('K/1/1', '117000000'),
+('K/1/2', '121500000'),
+('K/1/3', '126000000'),
+('K/2', '67500000'),
+('K/3', '72000000'),
+('TK0', '54000000'),
+('TK1', '58500000'),
+('TK2', '63000000'),
+('TK3', '67500000');
 
 -- --------------------------------------------------------
 
@@ -52,19 +73,19 @@ INSERT INTO `attendence_table` (`id`, `employee_id`, `entry_time`, `exit_time`, 
 CREATE TABLE `employee_table` (
   `id` int NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `nik` int NOT NULL,
+  `nik` bigint NOT NULL,
   `address` text COLLATE utf8mb4_general_ci NOT NULL,
   `date_of_birth` date NOT NULL,
   `gender` varchar(6) COLLATE utf8mb4_general_ci NOT NULL,
   `marital_status` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `contact` int NOT NULL,
+  `contact` bigint NOT NULL,
   `position` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `department` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `employement_type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `hire_date` date NOT NULL,
-  `employee_id` int NOT NULL,
-  `npwp` int NOT NULL,
-  `dependent_status` varchar(4) COLLATE utf8mb4_general_ci NOT NULL,
+  `employee_id` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
+  `npwp` bigint NOT NULL,
+  `dependent_status` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `bpjs_number` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `base_salary` int NOT NULL,
   `bank_account_number` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
@@ -75,8 +96,31 @@ CREATE TABLE `employee_table` (
 --
 
 INSERT INTO `employee_table` (`id`, `name`, `nik`, `address`, `date_of_birth`, `gender`, `marital_status`, `contact`, `position`, `department`, `employement_type`, `hire_date`, `employee_id`, `npwp`, `dependent_status`, `bpjs_number`, `base_salary`, `bank_account_number`) VALUES
-(9, 'Rangga', 2147483647, 'Dendal', '2025-05-01', 'female', 'married', 2147483647, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 2147483647, 2147483647, 'TK0', '8894498408489', 5000000, '5489494989489494'),
-(10, 'Rafael Julio Kembuan', 2147483647, 'Langowan', '2025-04-01', 'male', 'single', 2147483647, 'Head of Accounting Departement', 'Finance', 'Intern', '2025-05-16', 2147483647, 2147483647, 'TK0', '5454564564564', 4500000, '8888978797879878');
+(1, 'Rangga Satali', 7171111111111111, 'Manado', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', '2222222222222222', 7171111111111111, 'TK0', '3333333333333', 5000000, '4444444444444444'),
+(6, 'Rafael', 7171222222222222, 'Langoan', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Intern', '2025-05-31', '2222222222222222', 7171122222222222, 'TK1', '3333333333333', 7000000, '4444444444444444');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `salary_table`
+--
+
+CREATE TABLE `salary_table` (
+  `nik` bigint NOT NULL,
+  `bpjs_deduction` bigint NOT NULL,
+  `jht_deduction` bigint NOT NULL,
+  `pph_deduction` bigint NOT NULL,
+  `total_deduction` bigint NOT NULL,
+  `amount` bigint NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data untuk tabel `salary_table`
+--
+
+INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`) VALUES
+(7171111111111111, 50000, 250000, 10000, 310000, 4690000),
+(7171222222222222, 70000, 350000, 85250, 505250, 6494750);
 
 -- --------------------------------------------------------
 
@@ -114,10 +158,22 @@ ALTER TABLE `attendence_table`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `category_table`
+--
+ALTER TABLE `category_table`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `employee_table`
 --
 ALTER TABLE `employee_table`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `salary_table`
+--
+ALTER TABLE `salary_table`
+  ADD PRIMARY KEY (`nik`);
 
 --
 -- Indeks untuk tabel `users_table`
@@ -133,13 +189,13 @@ ALTER TABLE `users_table`
 -- AUTO_INCREMENT untuk tabel `attendence_table`
 --
 ALTER TABLE `attendence_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `employee_table`
 --
 ALTER TABLE `employee_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users_table`
