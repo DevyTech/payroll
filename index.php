@@ -13,8 +13,23 @@ $page = $_GET['page'] ?? 'dashboard';
 // Employee Tables
 $dataEmployee = mysqli_query($conn, "SELECT * FROM employee_table");
 $countDataEmployee = mysqli_num_rows($dataEmployee);
-$salary = 4000000;
-$format = "Rp " . number_format($salary, 0, '.', '.');
+
+// Attendence Tables Join Employee
+$dataAttendence = mysqli_query($conn, "SELECT employee_table.id,
+                                        employee_table.name,
+                                        employee_table.nik,
+                                        employee_table.position,
+                                        employee_table.employement_type,
+                                        employee_table.base_salary,
+                                        employee_table.dependent_status,
+                                        category_table.id,
+                                        category_table.pktp,
+                                        COUNT(attendence_table.employee_id) AS days_work
+                                        FROM employee_table
+                                        JOIN attendence_table ON employee_table.id = attendence_table.employee_id
+                                        JOIN category_table ON employee_table.dependent_status = category_table.id
+                                        GROUP BY attendence_table.employee_id");
+$countDataAttendence = mysqli_num_rows($dataAttendence);
 
 // User Table
 $dataUsers = mysqli_query($conn, "SELECT * FROM users_table");

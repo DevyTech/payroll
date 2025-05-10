@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dateNow = date('Y-m-d');
 
     // Check if data already exist;
-    $scope = mysqli_query($conn, "SELECT * FROM attendence_table WHERE employee_id = '$id'");
+    $scope = mysqli_query($conn, "SELECT * FROM attendence_table WHERE employee_id = '$id' AND date = '$dateNow'");
     $count = mysqli_num_rows($scope);
 
     if ($count > 0) {

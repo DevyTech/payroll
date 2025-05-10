@@ -85,6 +85,17 @@
                             <select class="form-select" id="inputDependent" name="dependent" required>
                                 <option selected hidden></option>
                                 <option value="TK0">TK0</option>
+                                <option value="TK1">TK1</option>
+                                <option value="TK2">TK2</option>
+                                <option value="TK3">TK3</option>
+                                <option value="K/0">K/0</option>
+                                <option value="K/1">K/1</option>
+                                <option value="K/2">K/2</option>
+                                <option value="K/3">K/3</option>
+                                <option value="K/1/0">K/1/0</option>
+                                <option value="K/1/1">K/1/1</option>
+                                <option value="K/1/2">K/1/2</option>
+                                <option value="K/1/3">K/1/3</option>
                             </select>
                         </div>
                         <div class="col-12">

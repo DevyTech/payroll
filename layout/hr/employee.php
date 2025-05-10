@@ -74,7 +74,7 @@
                                         <td><?php echo $row['npwp']; ?></td>
                                         <td><?php echo $row['dependent_status']; ?></td>
                                         <td><?php echo $row['bpjs_number']; ?></td>
-                                        <td><?php echo $row['base_salary']; ?></td>
+                                        <td><?php echo number_format($row['base_salary'], 0, ',', '.') ?></td>
                                         <td><?php echo $row['bank_account_number']; ?></td>
                                     </tr>
                                 <?php
