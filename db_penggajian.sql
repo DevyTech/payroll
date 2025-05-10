@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 10 Bulan Mei 2025 pada 18.46
+-- Waktu pembuatan: 10 Bulan Mei 2025 pada 23.48
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -34,6 +34,13 @@ CREATE TABLE `attendence_table` (
   `exit_time` time NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `attendence_table`
+--
+
+INSERT INTO `attendence_table` (`id`, `employee_id`, `entry_time`, `exit_time`, `date`) VALUES
+(1, 1, '07:47:00', '16:47:00', '2025-05-10');
 
 -- --------------------------------------------------------
 
@@ -111,16 +118,17 @@ CREATE TABLE `salary_table` (
   `jht_deduction` bigint NOT NULL,
   `pph_deduction` bigint NOT NULL,
   `total_deduction` bigint NOT NULL,
-  `amount` bigint NOT NULL
+  `amount` bigint NOT NULL,
+  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data untuk tabel `salary_table`
 --
 
-INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`) VALUES
-(7171111111111111, 50000, 250000, 10000, 310000, 4690000),
-(7171222222222222, 70000, 350000, 85250, 505250, 6494750);
+INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `status`) VALUES
+(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '4'),
+(7171222222222222, 70000, 350000, 85250, 505250, 6494750, '1');
 
 -- --------------------------------------------------------
 
@@ -189,7 +197,7 @@ ALTER TABLE `users_table`
 -- AUTO_INCREMENT untuk tabel `attendence_table`
 --
 ALTER TABLE `attendence_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `employee_table`

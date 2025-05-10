@@ -42,7 +42,8 @@
                                     <th colspan="3">Deduction</th>
                                     <th rowspan="2">Total Deductions</th>
                                     <th rowspan="2">Amount</th>
-                                    <th rowspan="2">Action</th>
+                                    <th rowspan="2">Approve</th>
+                                    <th rowspan="2">Reject</th>
                                 </tr>
                                 <tr>
                                     <th>BPJS</th>
@@ -70,7 +71,18 @@
                                             <td><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
                                             <td><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
                                             <td>
-                                                <a href="#" class="btn btn-success"><i class="bi bi-check-circle"></i></a> | <a href="#" class="btn btn-danger"><i class="bi bi-x-circle"></i></a>
+                                                <form action="./query/salary_controller.php" method="post">
+                                                    <input type="text" name="nik" value="<?php echo $row['nik']; ?>" hidden>
+                                                    <input type="text" name="approve" hidden>
+                                                    <button type="submit" class="btn btn-success"><i class="bi bi-check-circle"></i></button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="./query/salary_controller.php" method="post">
+                                                    <input type="text" name="nik" value="<?php echo $row['nik']; ?>" hidden>
+                                                    <input type="text" name="reject" hidden>
+                                                    <button type="submit" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                 <?php
