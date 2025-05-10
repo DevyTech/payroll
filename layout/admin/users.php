@@ -22,6 +22,7 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Username</th>
+                                    <th>Role</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -34,6 +35,7 @@
                                         <th><?php echo $countRows++; ?></th>
                                         <td><?php echo $row['name']; ?></td>
                                         <td><?php echo $row['username']; ?></td>
+                                        <td><?php echo $row['role']; ?></td>
                                         <td><a href="#" class="btn btn-warning"><i class="bi bi-pen"></i></a> | <a href="#" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
                                     </tr>
                                 <?php
