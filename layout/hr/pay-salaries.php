@@ -40,8 +40,7 @@
                                     <th rowspan="2">Status</th>
                                     <th rowspan="2">Base Salary</th>
                                     <th rowspan="2">Working Days</th>
-                                    <th colspan="2">Deduction</th>
-                                    <th rowspan="2">PPH</th>
+                                    <th colspan="3">Deduction</th>
                                     <th rowspan="2">Total Deductions</th>
                                     <th rowspan="2">Amount</th>
                                     <th rowspan="2">Action</th>
@@ -49,12 +48,13 @@
                                 <tr>
                                     <th>BPJS</th>
                                     <th>JHT</th>
+                                    <th>PPH</th>
                                 </tr>
                             </thead>
                             <tbody style="text-transform: capitalize;">
                                 <?php
                                 $countRows = 1;
-                                foreach ($dataAttendence as $row) {
+                                foreach ($dataSalary as $row) {
                                     $tax_rate;
                                     $baseSalary = $row['base_salary'];
                                     $bpjs = $baseSalary * 0.01;

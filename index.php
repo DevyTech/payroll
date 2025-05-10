@@ -15,7 +15,7 @@ $dataEmployee = mysqli_query($conn, "SELECT * FROM employee_table");
 $countDataEmployee = mysqli_num_rows($dataEmployee);
 
 // Attendence Tables Join Employee
-$dataAttendence = mysqli_query($conn, "SELECT employee_table.id,
+$dataSalary = mysqli_query($conn, "SELECT employee_table.id,
                                         employee_table.name,
                                         employee_table.nik,
                                         employee_table.position,
@@ -29,7 +29,7 @@ $dataAttendence = mysqli_query($conn, "SELECT employee_table.id,
                                         JOIN attendence_table ON employee_table.id = attendence_table.employee_id
                                         JOIN category_table ON employee_table.dependent_status = category_table.id
                                         GROUP BY attendence_table.employee_id");
-$countDataAttendence = mysqli_num_rows($dataAttendence);
+$countDataSalary = mysqli_num_rows($dataSalary);
 
 // User Table
 $dataUsers = mysqli_query($conn, "SELECT * FROM users_table");

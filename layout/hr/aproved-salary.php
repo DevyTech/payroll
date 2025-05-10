@@ -51,67 +51,46 @@
                                     <th>JHT</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <th>1</th>
-                                    <td>Rafael Julio Kembuan</td>
-                                    <td>717171717171</td>
-                                    <td>Head Of Accounting Department</td>
-                                    <td>Permanent</td>
-                                    <td>5,000,000</td>
-                                    <td>22 Days</td>
-                                    <td>10,000</td>
-                                    <td>50,000</td>
-                                    <td>250,000</td>
-                                    <td>310,000</td>
-                                    <td>4,690,000</td>
-                                    <td><a href="#" class="btn btn-success">Pay Salary</a></td>
-                                </tr>
-                                <tr>
-                                    <th>1</th>
-                                    <td>Rangga Aditya Satali</td>
-                                    <td>717171717171</td>
-                                    <td>Head Of Accounting Department</td>
-                                    <td>Permanent</td>
-                                    <td>5,000,000</td>
-                                    <td>22 Days</td>
-                                    <td>10,000</td>
-                                    <td>50,000</td>
-                                    <td>250,000</td>
-                                    <td>310,000</td>
-                                    <td>4,690,000</td>
-                                    <td><a href="#" class="btn btn-success">Pay Salary</a></td>
-                                </tr>
-                            </tbody>
-                            <!-- <tbody style="text-transform: capitalize;">
+                            <tbody style="text-transform: capitalize;">
                                 <?php
                                 $countRows = 1;
-                                foreach ($dataEmployee as $row) {
+                                foreach ($dataSalary as $row) {
+                                    $tax_rate;
+                                    $baseSalary = $row['base_salary'];
+                                    $bpjs = $baseSalary * 0.01;
+                                    $jht = $baseSalary * 0.05;
+                                    $dependent = $row['dependent_status'];
+                                    $pktp = $row['pktp'];
+                                    if ($baseSalary <= 6000000) {
+                                        $tax_rate = 0.05;
+                                    } elseif ($baseSalary == 250000000) {
+                                        $tax_rate = 0.015;
+                                    } elseif ($baseSalary == 500000000) {
+                                        $tax_rate = 0.025;
+                                    } elseif ($baseSalary > 500000000) {
+                                        $tax_rate = 0.035;
+                                    }
+                                    $pph = (((($baseSalary - $bpjs - $jht) * 12) - $pktp) * $tax_rate) / 12;
                                 ?>
                                     <tr>
                                         <th><?php echo $countRows++; ?></th>
                                         <td><?php echo $row['name']; ?></td>
                                         <td><?php echo $row['nik']; ?></td>
-                                        <td><?php echo $row['address']; ?></td>
-                                        <td><?php echo $row['date_of_birth']; ?></td>
-                                        <td><?php echo $row['gender']; ?></td>
-                                        <td><?php echo $row['marital_status']; ?></td>
-                                        <td><?php echo $row['contact']; ?></td>
                                         <td><?php echo $row['position']; ?></td>
-                                        <td><?php echo $row['department']; ?></td>
                                         <td><?php echo $row['employement_type']; ?></td>
-                                        <td><?php echo $row['hire_date']; ?></td>
-                                        <td><?php echo $row['employee_id']; ?></td>
-                                        <td><?php echo $row['npwp']; ?></td>
-                                        <td><?php echo $row['dependent_status']; ?></td>
-                                        <td><?php echo $row['bpjs_number']; ?></td>
-                                        <td><?php echo $row['base_salary']; ?></td>
-                                        <td><?php echo $row['bank_account_number']; ?></td>
+                                        <td><?php echo number_format($baseSalary, 0, '.', '.'); ?></td>
+                                        <td><?php echo $row['days_work'] . " Days"; ?></td>
+                                        <td><?php echo number_format($bpjs, 0, '.', '.'); ?></td>
+                                        <td><?php echo number_format($jht, 0, '.', '.'); ?></td>
+                                        <td><?php echo number_format($pph, 0, '.', '.'); ?></td>
+                                        <td><?php echo number_format($bpjs + $jht + $pph, 0, '.', '.'); ?></td>
+                                        <td><?php echo number_format($baseSalary - $bpjs - $jht - $pph, 0, '.', '.'); ?></td>
+                                        <td><a href="#" class="btn btn-success">Pay Salary</a></td>
                                     </tr>
                                 <?php
                                 }
                                 ?>
-                            </tbody> -->
+                            </tbody>
                         </table>
                         <!-- End Table with stripped rows -->
                     </div>
