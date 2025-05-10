@@ -106,4 +106,22 @@
     }
 
     ?>
+
+    // Swal.fire({
+    //     title: "Are you sure?",
+    //     text: "You won't be able to revert this!",
+    //     icon: "warning",
+    //     showCancelButton: true,
+    //     confirmButtonColor: "#198754",
+    //     cancelButtonColor: "#d33",
+    //     confirmButtonText: "Yes, approve salary!"
+    // }).then((result) => {
+    //     if (result.isConfirmed) {
+    //         Swal.fire({
+    //             title: "Approved!",
+    //             text: "Employee salary has been approved.",
+    //             icon: "success"
+    //         });
+    //     }
+    // });
 </script>

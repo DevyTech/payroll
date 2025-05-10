@@ -54,23 +54,27 @@
                                 <?php
                                 $countRows = 1;
                                 foreach ($dataSalary as $row) {
+                                    if ($row['status'] == 2) {
                                 ?>
-                                    <tr>
-                                        <th><?php echo $countRows++; ?></th>
-                                        <td><?php echo $row['name']; ?></td>
-                                        <td><?php echo $row['nik']; ?></td>
-                                        <td><?php echo $row['position']; ?></td>
-                                        <td><?php echo $row['employement_type']; ?></td>
-                                        <td><?php echo number_format($row['base_salary'], 0, '.', '.'); ?></td>
-                                        <td><?php echo $row['days_work'] . " Days"; ?></td>
-                                        <td><?php echo number_format($row['bpjs_deduction'], 0, '.', '.'); ?></td>
-                                        <td><?php echo number_format($row['jht_deduction'], 0, '.', '.'); ?></td>
-                                        <td><?php echo number_format($row['pph_deduction'], 0, '.', '.'); ?></td>
-                                        <td><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
-                                        <td><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
-                                        <td><a href="#" class="btn btn-primary">Salary Request</a></td>
-                                    </tr>
+                                        <tr>
+                                            <th><?php echo $countRows++; ?></th>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['nik']; ?></td>
+                                            <td><?php echo $row['position']; ?></td>
+                                            <td><?php echo $row['employement_type']; ?></td>
+                                            <td><?php echo number_format($row['base_salary'], 0, '.', '.'); ?></td>
+                                            <td><?php echo $row['days_work'] . " Days"; ?></td>
+                                            <td><?php echo number_format($row['bpjs_deduction'], 0, '.', '.'); ?></td>
+                                            <td><?php echo number_format($row['jht_deduction'], 0, '.', '.'); ?></td>
+                                            <td><?php echo number_format($row['pph_deduction'], 0, '.', '.'); ?></td>
+                                            <td><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
+                                            <td><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
+                                            <td>
+                                                <a href="#" class="btn btn-success"><i class="bi bi-check-circle"></i></a> | <a href="#" class="btn btn-danger"><i class="bi bi-x-circle"></i></a>
+                                            </td>
+                                        </tr>
                                 <?php
+                                    }
                                 }
                                 ?>
                             </tbody>
