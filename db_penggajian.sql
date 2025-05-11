@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 10 Bulan Mei 2025 pada 23.48
--- Versi server: 8.0.30
--- Versi PHP: 8.1.10
+-- Generation Time: May 11, 2025 at 12:37 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.3.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `attendence_table`
+-- Table structure for table `attendence_table`
 --
 
 CREATE TABLE `attendence_table` (
@@ -36,7 +36,7 @@ CREATE TABLE `attendence_table` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `attendence_table`
+-- Dumping data for table `attendence_table`
 --
 
 INSERT INTO `attendence_table` (`id`, `employee_id`, `entry_time`, `exit_time`, `date`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `attendence_table` (`id`, `employee_id`, `entry_time`, `exit_time`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category_table`
+-- Table structure for table `category_table`
 --
 
 CREATE TABLE `category_table` (
@@ -54,7 +54,7 @@ CREATE TABLE `category_table` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `category_table`
+-- Dumping data for table `category_table`
 --
 
 INSERT INTO `category_table` (`id`, `pktp`) VALUES
@@ -74,32 +74,32 @@ INSERT INTO `category_table` (`id`, `pktp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `employee_table`
+-- Table structure for table `employee_table`
 --
 
 CREATE TABLE `employee_table` (
   `id` int NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `nik` bigint NOT NULL,
-  `address` text COLLATE utf8mb4_general_ci NOT NULL,
+  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date_of_birth` date NOT NULL,
-  `gender` varchar(6) COLLATE utf8mb4_general_ci NOT NULL,
-  `marital_status` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `gender` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `marital_status` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `contact` bigint NOT NULL,
-  `position` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `department` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `employement_type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `position` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `department` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `employement_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `hire_date` date NOT NULL,
-  `employee_id` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
+  `employee_id` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `npwp` bigint NOT NULL,
   `dependent_status` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `bpjs_number` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `bpjs_number` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `base_salary` int NOT NULL,
-  `bank_account_number` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
+  `bank_account_number` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `employee_table`
+-- Dumping data for table `employee_table`
 --
 
 INSERT INTO `employee_table` (`id`, `name`, `nik`, `address`, `date_of_birth`, `gender`, `marital_status`, `contact`, `position`, `department`, `employement_type`, `hire_date`, `employee_id`, `npwp`, `dependent_status`, `bpjs_number`, `base_salary`, `bank_account_number`) VALUES
@@ -109,7 +109,7 @@ INSERT INTO `employee_table` (`id`, `name`, `nik`, `address`, `date_of_birth`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `salary_table`
+-- Table structure for table `salary_table`
 --
 
 CREATE TABLE `salary_table` (
@@ -119,94 +119,96 @@ CREATE TABLE `salary_table` (
   `pph_deduction` bigint NOT NULL,
   `total_deduction` bigint NOT NULL,
   `amount` bigint NOT NULL,
-  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `manager_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `salary_table`
+-- Dumping data for table `salary_table`
 --
 
-INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `status`) VALUES
-(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '4'),
-(7171222222222222, 70000, 350000, 85250, 505250, 6494750, '1');
+INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `status`, `manager_id`) VALUES
+(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '2', 0),
+(7171222222222222, 70000, 350000, 85250, 505250, 6494750, '1', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users_table`
+-- Table structure for table `users_table`
 --
 
 CREATE TABLE `users_table` (
   `id` int NOT NULL,
-  `name` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
-  `username` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `role` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
+  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `role` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `signature` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `users_table`
+-- Dumping data for table `users_table`
 --
 
-INSERT INTO `users_table` (`id`, `name`, `username`, `password`, `role`) VALUES
-(1, 'Devaldy Bawotong', 'admin', '$2y$10$fnPRRtyXjr4ZBOhVFOaHT.3/8VsfqzuwJCrKVBX44F8OKM99xR0o2', 'admin'),
-(2, 'Rangga Satali', 'angga', '$2y$10$eTOFPfQxfvLBtZgv4wziPu6BnoUF/uAHwIbSDSX7jhrJRpyErfLRW', 'manager'),
-(3, 'Prabowo', 'prabowo', '$2y$10$vtAdu6NRnKyFpBiSmo2xkOSpkyD1TAMJUh4emi5x77kMZrvq9drKi', 'human resource'),
-(7, 'Jokowi', 'joko', '$2y$10$LGd91HEIsN4ThQQwBx1.heueRNNH4Zl53zsYRCOpba6nFMl9.6qKS', 'manager'),
-(8, 'Megawati', 'mega', '$2y$10$A3bMU51Px6BGtIITCoZ9I.owP8rlEx4vz7fJKWw1k9cbmbaQkRGae', 'human resource');
+INSERT INTO `users_table` (`id`, `name`, `username`, `password`, `role`, `signature`) VALUES
+(1, 'Devaldy Bawotong', 'admin', '$2y$10$fnPRRtyXjr4ZBOhVFOaHT.3/8VsfqzuwJCrKVBX44F8OKM99xR0o2', 'admin', ''),
+(2, 'Rangga Satali', 'angga', '$2y$10$eTOFPfQxfvLBtZgv4wziPu6BnoUF/uAHwIbSDSX7jhrJRpyErfLRW', 'manager', ''),
+(3, 'Prabowo', 'prabowo', '$2y$10$vtAdu6NRnKyFpBiSmo2xkOSpkyD1TAMJUh4emi5x77kMZrvq9drKi', 'human resource', ''),
+(7, 'Jokowi', 'joko', '$2y$10$LGd91HEIsN4ThQQwBx1.heueRNNH4Zl53zsYRCOpba6nFMl9.6qKS', 'manager', ''),
+(8, 'Megawati', 'mega', '$2y$10$A3bMU51Px6BGtIITCoZ9I.owP8rlEx4vz7fJKWw1k9cbmbaQkRGae', 'human resource', '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `attendence_table`
+-- Indexes for table `attendence_table`
 --
 ALTER TABLE `attendence_table`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `category_table`
+-- Indexes for table `category_table`
 --
 ALTER TABLE `category_table`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `employee_table`
+-- Indexes for table `employee_table`
 --
 ALTER TABLE `employee_table`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `salary_table`
+-- Indexes for table `salary_table`
 --
 ALTER TABLE `salary_table`
   ADD PRIMARY KEY (`nik`);
 
 --
--- Indeks untuk tabel `users_table`
+-- Indexes for table `users_table`
 --
 ALTER TABLE `users_table`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `attendence_table`
+-- AUTO_INCREMENT for table `attendence_table`
 --
 ALTER TABLE `attendence_table`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `employee_table`
+-- AUTO_INCREMENT for table `employee_table`
 --
 ALTER TABLE `employee_table`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `users_table`
+-- AUTO_INCREMENT for table `users_table`
 --
 ALTER TABLE `users_table`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
