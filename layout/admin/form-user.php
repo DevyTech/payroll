@@ -36,13 +36,19 @@
                                 <label for="floatingPassword">Password</label>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <select class="form-select" id="floatingSelect" aria-label="Role" name="role">
                                     <option value="manager">Manager</option>
                                     <option value="human resource">Human Resource</option>
                                 </select>
                                 <label for="floatingSelect">Role</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Signature</label>
+                                <input class="form-control" type="file" id="formFile" required>
                             </div>
                         </div>
                         <div class="text-start">
