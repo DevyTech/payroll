@@ -2,7 +2,7 @@
 require './config/connection.php';
 session_start();
 if (!isset($_SESSION['status_login'])) {
-    echo "<script> window.location = 'pages-login.php' </script>";
+    header("Location:pages-login.php");
 }
 $name = $_SESSION['uname'];
 $role = $_SESSION['ulevel'];
@@ -14,7 +14,7 @@ $page = $_GET['page'] ?? 'dashboard';
 $dataEmployee = mysqli_query($conn, "SELECT * FROM employee_table");
 $countDataEmployee = mysqli_num_rows($dataEmployee);
 
-// Attendence Tables Join Employee
+// Employee Table Join all Tables
 $dataSalary = mysqli_query($conn, "SELECT et.id,
                                         et.name,
                                         et.nik,
@@ -28,6 +28,7 @@ $dataSalary = mysqli_query($conn, "SELECT et.id,
                                         st.total_deduction,
                                         st.amount,
                                         st.status,
+                                        ut.name AS manager_name,
                                         COUNT(at.employee_id) AS days_work
                                     FROM
                                         employee_table et
@@ -35,6 +36,8 @@ $dataSalary = mysqli_query($conn, "SELECT et.id,
                                         attendence_table at ON et.id = at.employee_id
                                     JOIN
                                         Salary_table st ON et.nik = st.nik
+                                    LEFT JOIN
+                                        users_table ut ON st.manager_id = ut.id
                                     GROUP BY et.id");
 
 // User Table

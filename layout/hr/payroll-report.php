@@ -100,8 +100,12 @@
                                             <div class="text-end mt-5">
                                                 <p>Manado, 31 Januari 2025</p>
                                                 <p>Manajer Keuangan</p>
-                                                <img src="signature.png" alt="signature" width="180px">
-                                                <p class="fw-bold">Nur aini Salim</p>
+                                                <br><br>
+                                                <!-- <img src="signature.png" alt="signature" width="180px"> -->
+                                                <p class="fw-bold"><?php echo $row['manager_name']; ?></p>
+                                            </div>
+                                            <div class="text-end mt-5">
+                                                <a href="./report-print.php?id=<?php echo $row['nik']; ?>" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Print</a>
                                             </div>
                                         </div>
                                     </div>
