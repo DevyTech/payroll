@@ -57,15 +57,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $bpjsDeduction = $salary * 0.01;
             $jhtDeduction = $salary * 0.05;
             $pktp = $dataCategory->pktp;
-            if ($salary <= 60000000) {
+            $totalSalaryOneYear = $salary * 12;
+            if ($totalSalaryOneYear <= 60000000) {
                 $tax_rate = 0.05;
-            } elseif ($salary == 250000000) {
-                $tax_rate = 0.015;
-            } elseif ($salary == 500000000) {
-                $tax_rate = 0.025;
-            } elseif ($salary > 500000000) {
-                $tax_rate = 0.035;
+            } elseif ($totalSalaryOneYear <= 250000000) {
+                $tax_rate = 0.15;
+            } elseif ($totalSalaryOneYear <= 500000000) {
+                $tax_rate = 0.25;
+            } elseif ($totalSalaryOneYear > 500000000) {
+                $tax_rate = 0.35;
             }
+            echo $tax_rate;
             $pph = (((($salary - $bpjsDeduction - $jhtDeduction) * 12) - $pktp) * $tax_rate) / 12;
             $totalDeduction = $bpjsDeduction + $jhtDeduction + $pph;
             $amount = $salary - $bpjsDeduction - $jhtDeduction - $pph;
@@ -75,7 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             jht_deduction='$jhtDeduction',
                             pph_deduction='$pph',
                             total_deduction='$totalDeduction',
-                            amount='$amount'";
+                            amount='$amount',
+                            status='1'";
             $sqlSalary = mysqli_query($conn, $querySalary);
             if ($sqlSalary) {
                 header("Location:../index.php?page=form-employee&submit=success");
