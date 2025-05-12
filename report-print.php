@@ -14,6 +14,7 @@ $dataSalary = mysqli_query($conn, "SELECT et.id,
                                         st.total_deduction,
                                         st.amount,
                                         st.status,
+                                        st.date_approve,
                                         ut.name AS manager_name
                                     FROM
                                         employee_table et
@@ -129,7 +130,7 @@ $dataSalary = mysqli_query($conn, "SELECT et.id,
                         </table>
 
                         <div class="text-end mt-5">
-                            <p>Manado, 31 Januari 2025</p>
+                            <p>Manado, <?php echo date("d M Y", strtotime($row['date_approve'])); ?></p>
                             <p>Manajer Keuangan</p>
                             <br><br>
                             <!-- <img src="signature.png" alt="signature" width="180px"> -->

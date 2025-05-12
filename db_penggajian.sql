@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 11, 2025 at 12:37 PM
--- Server version: 8.0.30
--- PHP Version: 8.3.14
+-- Waktu pembuatan: 12 Bulan Mei 2025 pada 11.01
+-- Versi server: 8.0.30
+-- Versi PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `attendence_table`
+-- Struktur dari tabel `attendence_table`
 --
 
 CREATE TABLE `attendence_table` (
@@ -35,26 +35,19 @@ CREATE TABLE `attendence_table` (
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `attendence_table`
---
-
-INSERT INTO `attendence_table` (`id`, `employee_id`, `entry_time`, `exit_time`, `date`) VALUES
-(1, 1, '07:47:00', '16:47:00', '2025-05-10');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_table`
+-- Struktur dari tabel `category_table`
 --
 
 CREATE TABLE `category_table` (
   `id` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `pktp` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `category_table`
+-- Dumping data untuk tabel `category_table`
 --
 
 INSERT INTO `category_table` (`id`, `pktp`) VALUES
@@ -74,7 +67,7 @@ INSERT INTO `category_table` (`id`, `pktp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee_table`
+-- Struktur dari tabel `employee_table`
 --
 
 CREATE TABLE `employee_table` (
@@ -99,17 +92,16 @@ CREATE TABLE `employee_table` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `employee_table`
+-- Dumping data untuk tabel `employee_table`
 --
 
 INSERT INTO `employee_table` (`id`, `name`, `nik`, `address`, `date_of_birth`, `gender`, `marital_status`, `contact`, `position`, `department`, `employement_type`, `hire_date`, `employee_id`, `npwp`, `dependent_status`, `bpjs_number`, `base_salary`, `bank_account_number`) VALUES
-(1, 'Rangga Satali', 7171111111111111, 'Manado', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', '2222222222222222', 7171111111111111, 'TK0', '3333333333333', 5000000, '4444444444444444'),
-(6, 'Rafael', 7171222222222222, 'Langoan', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Intern', '2025-05-31', '2222222222222222', 7171122222222222, 'TK1', '3333333333333', 7000000, '4444444444444444');
+(16, 'Rangga', 7171111111111111, 'Manado', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', '3333333333333333', 7171111111111111, 'TK0', '2222222222222', 5000000, '4444444444444444');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `salary_table`
+-- Struktur dari tabel `salary_table`
 --
 
 CREATE TABLE `salary_table` (
@@ -119,22 +111,22 @@ CREATE TABLE `salary_table` (
   `pph_deduction` bigint NOT NULL,
   `total_deduction` bigint NOT NULL,
   `amount` bigint NOT NULL,
-  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `manager_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `manager_id` int DEFAULT NULL,
+  `date_approve` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `salary_table`
+-- Dumping data untuk tabel `salary_table`
 --
 
-INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `status`, `manager_id`) VALUES
-(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '2', 0),
-(7171222222222222, 70000, 350000, 85250, 505250, 6494750, '1', 0);
+INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `status`, `manager_id`, `date_approve`) VALUES
+(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '4', 2, '2025-05-12');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_table`
+-- Struktur dari tabel `users_table`
 --
 
 CREATE TABLE `users_table` (
@@ -143,11 +135,11 @@ CREATE TABLE `users_table` (
   `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `role` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `signature` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `signature` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users_table`
+-- Dumping data untuk tabel `users_table`
 --
 
 INSERT INTO `users_table` (`id`, `name`, `username`, `password`, `role`, `signature`) VALUES
@@ -162,53 +154,53 @@ INSERT INTO `users_table` (`id`, `name`, `username`, `password`, `role`, `signat
 --
 
 --
--- Indexes for table `attendence_table`
+-- Indeks untuk tabel `attendence_table`
 --
 ALTER TABLE `attendence_table`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category_table`
+-- Indeks untuk tabel `category_table`
 --
 ALTER TABLE `category_table`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `employee_table`
+-- Indeks untuk tabel `employee_table`
 --
 ALTER TABLE `employee_table`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `salary_table`
+-- Indeks untuk tabel `salary_table`
 --
 ALTER TABLE `salary_table`
   ADD PRIMARY KEY (`nik`);
 
 --
--- Indexes for table `users_table`
+-- Indeks untuk tabel `users_table`
 --
 ALTER TABLE `users_table`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `attendence_table`
+-- AUTO_INCREMENT untuk tabel `attendence_table`
 --
 ALTER TABLE `attendence_table`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `employee_table`
+-- AUTO_INCREMENT untuk tabel `employee_table`
 --
 ALTER TABLE `employee_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `users_table`
+-- AUTO_INCREMENT untuk tabel `users_table`
 --
 ALTER TABLE `users_table`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;

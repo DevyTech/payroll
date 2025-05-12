@@ -98,7 +98,7 @@
                                             </table>
 
                                             <div class="text-end mt-5">
-                                                <p>Manado, 31 Januari 2025</p>
+                                                <p>Manado, <?php echo date("d M Y", strtotime($row['date_approve'])); ?></p>
                                                 <p>Manajer Keuangan</p>
                                                 <br><br>
                                                 <!-- <img src="signature.png" alt="signature" width="180px"> -->
