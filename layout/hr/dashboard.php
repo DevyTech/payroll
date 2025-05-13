@@ -24,7 +24,7 @@
                                 <i class="bi bi-people-fill"></i>
                             </div>
                             <div class="ps-3">
-                                <h6>4 Employees</h6>
+                                <h6><?php echo $countDataEmployee; ?> Employees</h6>
                             </div>
                         </div>
                     </div>
