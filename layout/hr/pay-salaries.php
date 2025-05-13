@@ -75,10 +75,11 @@
                                                 switch ($row['status']) {
                                                     case '1':
                                                 ?>
-                                                        <form action="./query/salary_controller.php" method="post">
+                                                        <form action="./query/salary_controller.php" method="post" id="<?php echo "requestForm" . $row['emp_id']; ?>">
                                                             <input type="text" name="nik" value="<?php echo $row['nik']; ?>" hidden>
-                                                            <input type="submit" class="btn btn-primary" value="Salary Request" name="req"></input>
+                                                            <input type="text" name="req" hidden>
                                                         </form>
+                                                        <button class="btn btn-primary" onclick="requestForm(<?php echo $row['emp_id']; ?>)">Salary Request</button>
                                                     <?php
                                                         break;
                                                     case '2':

@@ -71,11 +71,11 @@
                                             <td><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
                                             <td><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
                                             <td>
-                                                <form action="./query/salary_controller.php" method="post">
+                                                <form action="./query/salary_controller.php" method="post" id="<?php echo "payForm" . $row['emp_id']; ?>">
                                                     <input type="text" name="nik" value="<?php echo $row['nik']; ?>" hidden>
                                                     <input type="text" name="pay" hidden>
-                                                    <button type="submit" class="btn btn-success">Pay Employee Salaries</button>
                                                 </form>
+                                                <button class="btn btn-success" onclick="payForm(<?php echo $row['emp_id']; ?>)">Pay Employee Salaries</button>
                                             </td>
                                         </tr>
                                 <?php

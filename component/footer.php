@@ -107,21 +107,103 @@
 
     ?>
 
-    // Swal.fire({
-    //     title: "Are you sure?",
-    //     text: "You won't be able to revert this!",
-    //     icon: "warning",
-    //     showCancelButton: true,
-    //     confirmButtonColor: "#198754",
-    //     cancelButtonColor: "#d33",
-    //     confirmButtonText: "Yes, approve salary!"
-    // }).then((result) => {
-    //     if (result.isConfirmed) {
-    //         Swal.fire({
-    //             title: "Approved!",
-    //             text: "Employee salary has been approved.",
-    //             icon: "success"
-    //         });
-    //     }
-    // });
+    function requestForm(id) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#198754",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Sending Request!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Sending!",
+                    text: "Approval request has been sent",
+                    icon: "success",
+                    allowOutsideClick: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById("requestForm" + id).submit();
+                    }
+                });
+            }
+        });
+    }
+
+    function approveForm(id) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#198754",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, approve salary!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Approved!",
+                    text: "Employee salary has been approved.",
+                    icon: "success",
+                    allowOutsideClick: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById("approveForm" + id).submit();
+                    }
+                });
+            }
+        });
+    }
+
+    function rejectForm(id) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#198754",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, reject salary!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Rejected!",
+                    text: "Employee salary has been rejected.",
+                    icon: "success",
+                    allowOutsideClick: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById("rejectForm" + id).submit();
+                    }
+                });
+            }
+        });
+    }
+
+    function payForm(id) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#198754",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, pay salary!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Paid!",
+                    text: "Employee salaries have been paid.",
+                    icon: "success",
+                    allowOutsideClick: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById("payForm" + id).submit();
+                    }
+                });
+            }
+        });
+    }
 </script>

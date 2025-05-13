@@ -71,18 +71,18 @@
                                             <td><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
                                             <td><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
                                             <td>
-                                                <form action="./query/salary_controller.php" method="post">
+                                                <form action="./query/salary_controller.php" method="post" id="<?php echo "approveForm" . $row['emp_id']; ?>">
                                                     <input type="text" name="nik" value="<?php echo $row['nik']; ?>" hidden>
                                                     <input type="text" name="approve" hidden>
-                                                    <button type="submit" class="btn btn-success"><i class="bi bi-check-circle"></i></button>
                                                 </form>
+                                                <button class="btn btn-success" onclick="approveForm(<?php echo $row['emp_id']; ?>)"><i class="bi bi-check-circle"></i></button>
                                             </td>
                                             <td>
-                                                <form action="./query/salary_controller.php" method="post">
+                                                <form action="./query/salary_controller.php" method="post" id="<?php echo "rejectForm" . $row['emp_id']; ?>">
                                                     <input type="text" name="nik" value="<?php echo $row['nik']; ?>" hidden>
                                                     <input type="text" name="reject" hidden>
-                                                    <button type="submit" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
                                                 </form>
+                                                <button class="btn btn-danger"><i class="bi bi-x-circle" onclick="rejectForm(<?php echo $row['emp_id']; ?>)"></i></button>
                                             </td>
                                         </tr>
                                 <?php

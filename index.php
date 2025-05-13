@@ -20,7 +20,7 @@ $dataEmployee = mysqli_query($conn, "SELECT * FROM employee_table");
 $countDataEmployee = mysqli_num_rows($dataEmployee);
 
 // Employee Table Join all Tables
-$dataSalary = mysqli_query($conn, "SELECT et.id,
+$dataSalary = mysqli_query($conn, "SELECT et.id AS emp_id,
                                         et.name,
                                         et.nik,
                                         et.position,
