@@ -14,7 +14,7 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Employee Salary</h5>
+                    <h5 class="card-title">Employee Salary Reports</h5>
 
                     <!-- Default Accordion -->
                     <div class="accordion" id="accordionPanelsStayOpenExample">

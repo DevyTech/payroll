@@ -129,7 +129,10 @@
                         </div>
                         <div class="col-12">
                             <label for="inputEmployementType" class="form-label">EmployementType</label>
-                            <input type="text" class="form-control" id="inputEmployementType" name="employementType" required autocomplete="off">
+                            <select class="form-select" id="inputEmployementType" name="employementType" required>
+                                <option value="Permanent" selected>Permanent</option>
+                                <option value="Intern">Intern</option>
+                            </select>
                         </div>
                         <div class="col-12">
                             <label for="inputDate" class="form-label">Hire Date</label>
@@ -137,7 +140,7 @@
                         </div>
                         <div class="col-12">
                             <label for="inputEmployeeId" class="form-label">Employee ID</label>
-                            <input type="text" pattern="\d*" maxlength="16" inputmode="numeric" class="form-control field-number" id="inputEmployeeId" name="employeeId" required autocomplete="off">
+                            <input type="text" class="form-control" id="inputEmployeeId" name="employeeId" required autocomplete="off" readonly value="<?php echo $employeId; ?>">
                         </div>
                     </div><!-- Vertical Form -->
 

@@ -21,12 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $departement = $_POST['departement'];
     $employementType = $_POST['employementType'];
     $hireDate = $_POST['hireDate'];
-    $employeId = filter_var($_POST['employeeId'], FILTER_VALIDATE_INT);
+    $employeId = $_POST['employeeId'];
     $salary = filter_var(str_replace(',', '', $_POST['salary']), FILTER_VALIDATE_INT);
     $bankAccount = filter_var($_POST['bankAccount'], FILTER_VALIDATE_INT);
 
     // Check if data already exist;
-    $scope = mysqli_query($conn, "SELECT * FROM employee_table WHERE name = '$name' OR nik = '$nik'");
+    $scope = mysqli_query($conn, "SELECT * FROM employee_table WHERE name = '$name' OR nik = '$nik' OR employee_id = '$employeId'");
     $count = mysqli_num_rows($scope);
 
     if ($count > 0) {

@@ -9,6 +9,11 @@ $role = $_SESSION['ulevel'];
 
 $page = $_GET['page'] ?? 'dashboard';
 
+// Generate Employee ID
+$prefix = "E-";
+$randomNumber = mt_rand(1000000000000000, 9999999999999999);
+$employeId = $prefix . $randomNumber;
+
 
 // Employee Tables
 $dataEmployee = mysqli_query($conn, "SELECT * FROM employee_table");
