@@ -48,7 +48,12 @@ $dataSalary = mysqli_query($conn, "SELECT et.id AS emp_id,
 
 // User Table
 $dataUsers = mysqli_query($conn, "SELECT * FROM users_table");
-$countDataUsers = mysqli_num_rows($dataUsers);
+// Count Manager
+$dataUserManager = mysqli_query($conn, "SELECT role FROM users_table WHERE role = 'manager'");
+$countManager = mysqli_num_rows($dataUserManager);
+// Count Human Resource
+$dataUserHR = mysqli_query($conn, "SELECT role FROM users_table WHERE role = 'human resource'");
+$countHR = mysqli_num_rows($dataUserHR);
 ?>
 <!DOCTYPE html>
 <html lang="en">

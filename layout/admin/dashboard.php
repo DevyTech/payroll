@@ -17,20 +17,21 @@
                 <div class="card info-card sales-card">
 
                     <div class="card-body">
-                        <h5 class="card-title">Admin</h5>
+                        <h5 class="card-title">Employee</h5>
 
                         <div class="d-flex align-items-center">
                             <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-person-gear"></i>
+                                <i class="bi bi-people"></i>
                             </div>
                             <div class="ps-3">
-                                <h6>4 Users</h6>
+                                <h6><?php echo $countDataEmployee; ?> Users</h6>
                             </div>
                         </div>
                     </div>
 
                 </div>
-            </div><!-- Card Data Admin -->
+            </div>
+            <!-- Card Data Admin -->
 
             <!-- Card Data Manager -->
             <div class="col-xxl-4 col-md-6">
@@ -41,10 +42,10 @@
 
                         <div class="d-flex align-items-center">
                             <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-person-lines-fill"></i>
+                                <i class="bi bi-person-check"></i>
                             </div>
                             <div class="ps-3">
-                                <h6>4 Users</h6>
+                                <h6><?php echo $countManager; ?> Users</h6>
                             </div>
                         </div>
                     </div>
@@ -65,7 +66,7 @@
                                 <i class="bi bi-person-lines-fill"></i>
                             </div>
                             <div class="ps-3">
-                                <h6>4 Users</h6>
+                                <h6><?php echo $countHR; ?> Users</h6>
                             </div>
                         </div>
 
