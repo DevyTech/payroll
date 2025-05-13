@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 12 Bulan Mei 2025 pada 11.01
+-- Waktu pembuatan: 13 Bulan Mei 2025 pada 09.06
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -83,7 +83,7 @@ CREATE TABLE `employee_table` (
   `department` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `employement_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `hire_date` date NOT NULL,
-  `employee_id` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `employee_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `npwp` bigint NOT NULL,
   `dependent_status` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `bpjs_number` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -96,7 +96,9 @@ CREATE TABLE `employee_table` (
 --
 
 INSERT INTO `employee_table` (`id`, `name`, `nik`, `address`, `date_of_birth`, `gender`, `marital_status`, `contact`, `position`, `department`, `employement_type`, `hire_date`, `employee_id`, `npwp`, `dependent_status`, `bpjs_number`, `base_salary`, `bank_account_number`) VALUES
-(16, 'Rangga', 7171111111111111, 'Manado', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', '3333333333333333', 7171111111111111, 'TK0', '2222222222222', 5000000, '4444444444444444');
+(19, 'Rangga', 7171111111111111, 'Manado', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-6888419922156506', 7171111111111111, 'TK0', '3333333333333', 5000000, '2222222222222222'),
+(20, 'Rafael', 7171222222222222, 'Langowan', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-6130507071954146', 7171222222222222, 'TK1', '2222222222222', 7000000, '3333333333333333'),
+(21, 'Virgil', 7171333333333333, 'Manado', '2025-05-01', 'female', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-9693153566291456', 7171333333333333, 'K/1', '2222222222222', 6000000, '3333333333333333');
 
 -- --------------------------------------------------------
 
@@ -121,7 +123,9 @@ CREATE TABLE `salary_table` (
 --
 
 INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `status`, `manager_id`, `date_approve`) VALUES
-(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '4', 2, '2025-05-12');
+(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '4', 7, '2025-05-13'),
+(7171222222222222, 70000, 350000, 255750, 675750, 6324250, '4', 7, '2025-05-13'),
+(7171333333333333, 60000, 300000, 58500, 418500, 5581500, '4', 2, '2025-05-13');
 
 -- --------------------------------------------------------
 
@@ -197,7 +201,7 @@ ALTER TABLE `attendence_table`
 -- AUTO_INCREMENT untuk tabel `employee_table`
 --
 ALTER TABLE `employee_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `users_table`
