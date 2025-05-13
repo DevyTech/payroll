@@ -124,6 +124,9 @@ $countHR = mysqli_num_rows($dataUserHR);
                 case 'salary-request':
                     include './layout/manager/salary-request.php';
                     break;
+                case 'payroll-report':
+                    include './layout/manager/payroll-report.php';
+                    break;
                 default:
                     include './pages-error-404.php';
                     break;

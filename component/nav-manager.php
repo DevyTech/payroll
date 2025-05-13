@@ -99,6 +99,13 @@
       </a>
     </li><!-- End Salary Nav -->
 
+    <li class="nav-item">
+      <a class="nav-link" href="?page=payroll-report">
+        <i class="bi bi-clipboard-data"></i>
+        <span>Payroll Report</span>
+      </a>
+    </li>
+
   </ul>
 
 </aside><!-- End Sidebar-->

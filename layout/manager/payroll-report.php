@@ -3,8 +3,7 @@
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="?page=dashboard">Home</a></li>
-            <li class="breadcrumb-item">Payroll</li>
-            <li class="breadcrumb-item active">Payroll Report</li>
+            <li class="breadcrumb-item active">Payroll Reports</li>
         </ol>
     </nav>
 </div><!-- End Page Title -->
