@@ -104,7 +104,7 @@
                                             <p class="fw-bold"><?php echo $row['manager_name']; ?></p>
                                         </div>
                                         <div class="text-end mt-5">
-                                            <a href="./report-print.php?id=<?php echo $row['nik']; ?>" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Print</a>
+                                            <a href="./report-print.php?id=<?php echo $row['empNik']; ?>" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Print</a>
                                         </div>
                                     </div>
                                 </div>
