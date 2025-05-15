@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 13 Bulan Mei 2025 pada 09.06
+-- Waktu pembuatan: 15 Bulan Mei 2025 pada 12.25
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -123,9 +123,9 @@ CREATE TABLE `salary_table` (
 --
 
 INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `status`, `manager_id`, `date_approve`) VALUES
-(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '4', 7, '2025-05-13'),
-(7171222222222222, 70000, 350000, 255750, 675750, 6324250, '4', 7, '2025-05-13'),
-(7171333333333333, 60000, 300000, 58500, 418500, 5581500, '4', 2, '2025-05-13');
+(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '1', NULL, NULL),
+(7171222222222222, 70000, 350000, 255750, 675750, 6324250, '1', NULL, NULL),
+(7171333333333333, 60000, 300000, 58500, 418500, 5581500, '1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -139,7 +139,7 @@ CREATE TABLE `users_table` (
   `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `role` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `signature` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `signature` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -207,7 +207,7 @@ ALTER TABLE `employee_table`
 -- AUTO_INCREMENT untuk tabel `users_table`
 --
 ALTER TABLE `users_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

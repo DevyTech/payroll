@@ -34,21 +34,23 @@
                                 <?php
                                 $countRows = 1;
                                 foreach ($dataUsers as $row) {
+                                    if ($row['role'] != 'admin') {
                                 ?>
-                                    <tr>
-                                        <th><?php echo $countRows++; ?></th>
-                                        <td><?php echo $row['name']; ?></td>
-                                        <td><?php echo $row['username']; ?></td>
-                                        <td><?php echo $row['role']; ?></td>
-                                        <td><a href="?page=update-user&id=<?php echo $row['id']; ?>" class="btn btn-warning"><i class="bi bi-pen"></i></a></td>
-                                        <td>
-                                            <form action="./query/create_user.php" method="post" id="formDelete<?php echo $row['id']; ?>">
-                                                <input type="hidden" value="<?php echo $row['id']; ?>" name="uid">
-                                            </form>
-                                            <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>)"><i class="bi bi-trash"></i></button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <th><?php echo $countRows++; ?></th>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['username']; ?></td>
+                                            <td><?php echo $row['role']; ?></td>
+                                            <td><a href="?page=update-user&id=<?php echo $row['id']; ?>" class="btn btn-warning"><i class="bi bi-pen"></i></a></td>
+                                            <td>
+                                                <form action="./query/create_user.php" method="post" id="formDelete<?php echo $row['id']; ?>">
+                                                    <input type="hidden" value="<?php echo $row['id']; ?>" name="uid">
+                                                </form>
+                                                <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>)"><i class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
                                 <?php
+                                    }
                                 }
                                 ?>
                             </tbody>
