@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dataSalary = mysqli_query($conn, "SELECT * FROM salary_table WHERE nik='$nik'");
     $d = mysqli_fetch_object($dataSalary);
     if (isset($_POST['req'])) {
-        $query = "UPDATE salary_table SET status='2' WHERE nik='$nik'";
+        $query = "UPDATE salary_table SET status='2',date_month='$dateNow' WHERE nik='$nik'";
         $location = 'employee-salary';
     } elseif (isset($_POST['approve'])) {
         $query = "UPDATE salary_table SET status='3',manager_id='$uid',date_approve='$dateNow' WHERE nik='$nik'";
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     amount='$d->amount',
                     manager_id='$d->manager_id',
                     date_approve='$d->date_approve',
-                    date_month='$dateNow'");
+                    date_month='$d->date_approve'");
         $location = 'aproved-salary';
     }
     $sql = mysqli_query($conn, $query);

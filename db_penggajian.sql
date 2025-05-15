@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 15 Bulan Mei 2025 pada 12.25
+-- Waktu pembuatan: 15 Bulan Mei 2025 pada 15.42
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -98,7 +98,41 @@ CREATE TABLE `employee_table` (
 INSERT INTO `employee_table` (`id`, `name`, `nik`, `address`, `date_of_birth`, `gender`, `marital_status`, `contact`, `position`, `department`, `employement_type`, `hire_date`, `employee_id`, `npwp`, `dependent_status`, `bpjs_number`, `base_salary`, `bank_account_number`) VALUES
 (19, 'Rangga', 7171111111111111, 'Manado', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-6888419922156506', 7171111111111111, 'TK0', '3333333333333', 5000000, '2222222222222222'),
 (20, 'Rafael', 7171222222222222, 'Langowan', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-6130507071954146', 7171222222222222, 'TK1', '2222222222222', 7000000, '3333333333333333'),
-(21, 'Virgil', 7171333333333333, 'Manado', '2025-05-01', 'female', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-9693153566291456', 7171333333333333, 'K/1', '2222222222222', 6000000, '3333333333333333');
+(21, 'Virgil', 7171333333333333, 'Manado', '2025-05-01', 'female', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-9693153566291456', 7171333333333333, 'K/1', '2222222222222', 6000000, '3333333333333333'),
+(24, 'David', 1231231323123312, 'Manado', '2025-04-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-1533555238043085', 1111111111111111, 'K/3', '1231231231231', 8000000, '1111111111111111');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `report_table`
+--
+
+CREATE TABLE `report_table` (
+  `id` int NOT NULL,
+  `nik` bigint NOT NULL,
+  `bpjs_deduction` bigint NOT NULL,
+  `jht_deduction` bigint NOT NULL,
+  `pph_deduction` bigint NOT NULL,
+  `total_deduction` bigint NOT NULL,
+  `amount` bigint NOT NULL,
+  `manager_id` int NOT NULL,
+  `date_approve` date DEFAULT NULL,
+  `date_month` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `report_table`
+--
+
+INSERT INTO `report_table` (`id`, `nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `manager_id`, `date_approve`, `date_month`) VALUES
+(1, 7171111111111111, 50000, 250000, 10000, 310000, 4690000, 7, '2025-04-15', '2025-04-15'),
+(2, 7171222222222222, 70000, 350000, 255750, 675750, 6324250, 7, '2025-04-15', '2025-04-15'),
+(3, 7171333333333333, 60000, 300000, 58500, 418500, 5581500, 7, '2025-04-15', '2025-04-15'),
+(4, 1231231323123312, 80000, 400000, 228000, 708000, 7292000, 7, '2025-04-15', '2025-04-15'),
+(9, 7171111111111111, 50000, 250000, 10000, 310000, 4690000, 7, '2025-05-15', '2025-05-15'),
+(10, 7171222222222222, 70000, 350000, 255750, 675750, 6324250, 7, '2025-05-15', '2025-05-15'),
+(11, 7171333333333333, 60000, 300000, 58500, 418500, 5581500, 7, '2025-05-15', '2025-05-15'),
+(12, 1231231323123312, 80000, 400000, 228000, 708000, 7292000, 7, '2025-05-15', '2025-05-15');
 
 -- --------------------------------------------------------
 
@@ -115,17 +149,19 @@ CREATE TABLE `salary_table` (
   `amount` bigint NOT NULL,
   `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `manager_id` int DEFAULT NULL,
-  `date_approve` date DEFAULT NULL
+  `date_approve` date DEFAULT NULL,
+  `date_month` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `salary_table`
 --
 
-INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `status`, `manager_id`, `date_approve`) VALUES
-(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '1', NULL, NULL),
-(7171222222222222, 70000, 350000, 255750, 675750, 6324250, '1', NULL, NULL),
-(7171333333333333, 60000, 300000, 58500, 418500, 5581500, '1', NULL, NULL);
+INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `status`, `manager_id`, `date_approve`, `date_month`) VALUES
+(1231231323123312, 80000, 400000, 228000, 708000, 7292000, '1', NULL, NULL, '2025-05-15'),
+(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '1', NULL, NULL, '2025-05-15'),
+(7171222222222222, 70000, 350000, 255750, 675750, 6324250, '1', NULL, NULL, '2025-05-15'),
+(7171333333333333, 60000, 300000, 58500, 418500, 5581500, '1', NULL, NULL, '2025-05-15');
 
 -- --------------------------------------------------------
 
@@ -173,6 +209,13 @@ ALTER TABLE `category_table`
 -- Indeks untuk tabel `employee_table`
 --
 ALTER TABLE `employee_table`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nik` (`nik`);
+
+--
+-- Indeks untuk tabel `report_table`
+--
+ALTER TABLE `report_table`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -201,7 +244,13 @@ ALTER TABLE `attendence_table`
 -- AUTO_INCREMENT untuk tabel `employee_table`
 --
 ALTER TABLE `employee_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT untuk tabel `report_table`
+--
+ALTER TABLE `report_table`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `users_table`

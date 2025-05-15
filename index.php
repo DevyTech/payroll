@@ -34,6 +34,7 @@ $dataSalary = mysqli_query($conn, "SELECT et.id AS emp_id,
                                         st.amount,
                                         st.status,
                                         st.date_approve,
+                                        st.date_month,
                                         ut.name AS manager_name,
                                         COUNT(at.employee_id) AS days_work
                                     FROM
@@ -45,6 +46,25 @@ $dataSalary = mysqli_query($conn, "SELECT et.id AS emp_id,
                                     LEFT JOIN
                                         users_table ut ON st.manager_id = ut.id
                                     GROUP BY et.id");
+// Report Table Join Employee
+$dataReport = mysqli_query($conn, "SELECT et.name AS empName,
+                                        et.nik AS empNik,
+                                        et.position AS empPosition,
+                                        et.employement_type AS empType,
+                                        et.base_salary AS empSalary,
+                                        rt.pph_deduction AS empPph,
+                                        rt.bpjs_deduction AS empBpjs,
+                                        rt.jht_deduction AS empJht,
+                                        rt.total_deduction AS empTotal,
+                                        rt.amount,
+                                        rt.date_approve AS dateApprove,
+                                        ut.name AS manager_name
+                                    FROM
+                                        employee_table et
+                                    INNER JOIN
+                                        report_table rt ON et.nik = rt.nik
+                                    INNER JOIN
+                                        users_table ut ON rt.manager_id = ut.id");
 
 // User Table
 $dataUsers = mysqli_query($conn, "SELECT * FROM users_table");

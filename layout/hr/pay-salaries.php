@@ -54,47 +54,50 @@
                             <tbody style="text-transform: capitalize;">
                                 <?php
                                 $countRows = 1;
+                                $dateNow = date('Y-m-d');
                                 foreach ($dataSalary as $row) {
                                     if ($row['status'] == 1 || $row['status'] == 2) {
+                                        if ($row['date_month'] != $dateNow) {
                                 ?>
-                                        <tr>
-                                            <th><?php echo $countRows++; ?></th>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['nik']; ?></td>
-                                            <td><?php echo $row['position']; ?></td>
-                                            <td><?php echo $row['employement_type']; ?></td>
-                                            <td><?php echo number_format($row['base_salary'], 0, '.', '.'); ?></td>
-                                            <td><?php echo $row['days_work'] . " Days"; ?></td>
-                                            <td><?php echo number_format($row['bpjs_deduction'], 0, '.', '.'); ?></td>
-                                            <td><?php echo number_format($row['jht_deduction'], 0, '.', '.'); ?></td>
-                                            <td><?php echo number_format($row['pph_deduction'], 0, '.', '.'); ?></td>
-                                            <td><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
-                                            <td><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
-                                            <td>
-                                                <?php
-                                                switch ($row['status']) {
-                                                    case '1':
-                                                ?>
-                                                        <form action="./query/salary_controller.php" method="post" id="<?php echo "requestForm" . $row['emp_id']; ?>">
-                                                            <input type="text" name="nik" value="<?php echo $row['nik']; ?>" hidden>
-                                                            <input type="text" name="req" hidden>
-                                                        </form>
-                                                        <button class="btn btn-primary" onclick="requestForm(<?php echo $row['emp_id']; ?>)">Salary Request</button>
+                                            <tr>
+                                                <th><?php echo $countRows++; ?></th>
+                                                <td><?php echo $row['name']; ?></td>
+                                                <td><?php echo $row['nik']; ?></td>
+                                                <td><?php echo $row['position']; ?></td>
+                                                <td><?php echo $row['employement_type']; ?></td>
+                                                <td><?php echo number_format($row['base_salary'], 0, '.', '.'); ?></td>
+                                                <td><?php echo $row['days_work'] . " Days"; ?></td>
+                                                <td><?php echo number_format($row['bpjs_deduction'], 0, '.', '.'); ?></td>
+                                                <td><?php echo number_format($row['jht_deduction'], 0, '.', '.'); ?></td>
+                                                <td><?php echo number_format($row['pph_deduction'], 0, '.', '.'); ?></td>
+                                                <td><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
+                                                <td><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
+                                                <td>
                                                     <?php
-                                                        break;
-                                                    case '2':
+                                                    switch ($row['status']) {
+                                                        case '1':
                                                     ?>
-                                                        <button class="btn btn-warning" disabled>Waiting For Approval</button>
-                                                <?php
-                                                        break;
-                                                    default:
-                                                        # code...
-                                                        break;
-                                                }
-                                                ?>
-                                            </td>
-                                        </tr>
+                                                            <form action="./query/salary_controller.php" method="post" id="<?php echo "requestForm" . $row['emp_id']; ?>">
+                                                                <input type="text" name="nik" value="<?php echo $row['nik']; ?>" hidden>
+                                                                <input type="text" name="req" hidden>
+                                                            </form>
+                                                            <button class="btn btn-primary" onclick="requestForm(<?php echo $row['emp_id']; ?>)">Salary Request</button>
+                                                        <?php
+                                                            break;
+                                                        case '2':
+                                                        ?>
+                                                            <button class="btn btn-warning" disabled>Waiting For Approval</button>
+                                                    <?php
+                                                            break;
+                                                        default:
+                                                            # code...
+                                                            break;
+                                                    }
+                                                    ?>
+                                                </td>
+                                            </tr>
                                 <?php
+                                        }
                                     }
                                 }
                                 ?>
