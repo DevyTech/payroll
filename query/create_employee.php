@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $jhtDeduction = $salary * 0.05;
             $pktp = $dataCategory->pktp;
             $totalSalaryOneYear = $salary * 12;
+            $dateNow = date('Y-m-d');
             if ($totalSalaryOneYear <= 60000000) {
                 $tax_rate = 0.05;
             } elseif ($totalSalaryOneYear <= 250000000) {
@@ -78,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             pph_deduction='$pph',
                             total_deduction='$totalDeduction',
                             amount='$amount',
+                            date_month='$dateNow',
                             status='1'";
             $sqlSalary = mysqli_query($conn, $querySalary);
             if ($sqlSalary) {
