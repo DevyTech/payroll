@@ -15,7 +15,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Personal Identification</h5>
+                    <h5 class="card-title"><a href="?page=users"><i class="bi bi-arrow-left me-3"></i></a>Personal Identification</h5>
 
                     <!-- Vertical Form -->
                     <div class="row g-3">
