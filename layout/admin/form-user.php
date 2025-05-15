@@ -45,14 +45,8 @@
                                 <label for="floatingSelect">Role</label>
                             </div>
                         </div>
-                        <!-- <div class="col-md-12">
-                            <div class="mb-3">
-                                <label for="formFile" class="form-label">Signature</label>
-                                <input class="form-control" type="file" id="formFile" required>
-                            </div>
-                        </div> -->
                         <div class="text-start">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <input type="submit" class="btn btn-primary" value="Submit" name="submit" />
                         </div>
                     </div><!-- Vertical Form -->
 

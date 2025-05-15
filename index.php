@@ -48,6 +48,12 @@ $dataSalary = mysqli_query($conn, "SELECT et.id AS emp_id,
 
 // User Table
 $dataUsers = mysqli_query($conn, "SELECT * FROM users_table");
+// Get User Data
+if (isset($_GET['id'])) {
+    $uid = $_GET['id'];
+    $userData = mysqli_query($conn, "SELECT * FROM users_table WHERE id = '$uid'");
+    $data = mysqli_fetch_object($userData);
+}
 // Count Manager
 $dataUserManager = mysqli_query($conn, "SELECT role FROM users_table WHERE role = 'manager'");
 $countManager = mysqli_num_rows($dataUserManager);
@@ -81,6 +87,9 @@ $countHR = mysqli_num_rows($dataUserHR);
                     break;
                 case 'users':
                     include './layout/admin/users.php';
+                    break;
+                case 'update-user':
+                    include './layout/admin/form-update-user.php';
                     break;
                 default:
                     include './pages-error-404.php';

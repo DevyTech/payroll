@@ -17,13 +17,17 @@
                     <div class="table-responsive">
                         <!-- Table with stripped rows -->
                         <table class="table table-sm table-striped table-bordered align-middle text-center">
-                            <thead>
+                            <thead class="align-middle">
                                 <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Username</th>
-                                    <th>Role</th>
-                                    <th>Action</th>
+                                    <th rowspan="2">#</th>
+                                    <th rowspan="2">Name</th>
+                                    <th rowspan="2">Username</th>
+                                    <th rowspan="2">Role</th>
+                                    <th colspan="2">Action</th>
+                                </tr>
+                                <tr>
+                                    <th>Update</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody style="text-transform: capitalize;">
@@ -36,7 +40,13 @@
                                         <td><?php echo $row['name']; ?></td>
                                         <td><?php echo $row['username']; ?></td>
                                         <td><?php echo $row['role']; ?></td>
-                                        <td><a href="#" class="btn btn-warning"><i class="bi bi-pen"></i></a> | <a href="#" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                                        <td><a href="?page=update-user&id=<?php echo $row['id']; ?>" class="btn btn-warning"><i class="bi bi-pen"></i></a></td>
+                                        <td>
+                                            <form action="./query/create_user.php" method="post" id="formDelete<?php echo $row['id']; ?>">
+                                                <input type="hidden" value="<?php echo $row['id']; ?>" name="uid">
+                                            </form>
+                                            <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>)"><i class="bi bi-trash"></i></button>
+                                        </td>
                                     </tr>
                                 <?php
                                 }

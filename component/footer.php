@@ -89,6 +89,26 @@
                 });
             <?php
                 break;
+            case 'update':
+            ?>
+                Swal.fire({
+                    icon: "success",
+                    title: "User Updated",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            <?php
+                break;
+            case 'delete':
+            ?>
+                Swal.fire({
+                    icon: "success",
+                    title: "User Deleted",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            <?php
+                break;
             case 'failed':
             ?>
                 Swal.fire({
@@ -201,6 +221,31 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById("payForm" + id).submit();
+                    }
+                });
+            }
+        });
+    }
+
+    function deleteUser(id) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#198754",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Delete User"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "User has been deleted",
+                    icon: "success",
+                    allowOutsideClick: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById("formDelete" + id).submit();
                     }
                 });
             }
