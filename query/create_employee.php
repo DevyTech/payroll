@@ -72,6 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $pph = (((($salary - $bpjsDeduction - $jhtDeduction) * 12) - $pktp) * $tax_rate) / 12;
             $totalDeduction = $bpjsDeduction + $jhtDeduction + $pph;
             $amount = $salary - $bpjsDeduction - $jhtDeduction - $pph;
+            if ($pph < 0) {
+                $pph = 0;
+            }
             $querySalary = "INSERT INTO salary_table SET
                             nik = '$nik',
                             bpjs_deduction = '$bpjsDeduction',
