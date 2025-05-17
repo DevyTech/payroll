@@ -54,10 +54,10 @@
                             <tbody style="text-transform: capitalize;">
                                 <?php
                                 $countRows = 1;
-                                $dateNow = date('Y-m-d');
+                                $dateNow = date('Y m');
                                 foreach ($dataSalary as $row) {
                                     if ($row['status'] == 1 || $row['status'] == 2) {
-                                        if ($row['date_month'] != $dateNow) {
+                                        if ($row['month_name'] != $dateNow) {
                                 ?>
                                             <tr>
                                                 <th><?php echo $countRows++; ?></th>

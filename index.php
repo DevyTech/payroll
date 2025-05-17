@@ -34,7 +34,7 @@ $dataSalary = mysqli_query($conn, "SELECT et.id AS emp_id,
                                         st.amount,
                                         st.status,
                                         st.date_approve,
-                                        st.date_month,
+                                        DATE_FORMAT(st.date_month, '%Y %m') AS month_name,
                                         ut.name AS manager_name,
                                         COUNT(at.employee_id) AS days_work
                                     FROM
@@ -47,6 +47,11 @@ $dataSalary = mysqli_query($conn, "SELECT et.id AS emp_id,
                                         users_table ut ON st.manager_id = ut.id
                                     GROUP BY et.id");
 // Report Table Join Employee
+if (isset($_POST['filter'])) {
+    $dateMonth = $_POST['month_filter'];
+} else {
+    $dateMonth = date("Y-m");
+}
 $dataReport = mysqli_query($conn, "SELECT et.name AS empName,
                                         et.nik AS empNik,
                                         et.position AS empPosition,
@@ -58,13 +63,21 @@ $dataReport = mysqli_query($conn, "SELECT et.name AS empName,
                                         rt.total_deduction AS empTotal,
                                         rt.amount,
                                         rt.date_approve AS dateApprove,
+                                        DATE_FORMAT(rt.date_month, '%Y-%m') AS month_name,
                                         ut.name AS manager_name
                                     FROM
                                         employee_table et
                                     INNER JOIN
                                         report_table rt ON et.nik = rt.nik
                                     INNER JOIN
-                                        users_table ut ON rt.manager_id = ut.id");
+                                        users_table ut ON rt.manager_id = ut.id
+                                    WHERE DATE_FORMAT(rt.date_month, '%Y-%m')='$dateMonth'");
+
+$dataMonth = mysqli_query($conn, "SELECT DISTINCT DATE_FORMAT(date_month, '%Y-%m') AS month_key,
+                                    DATE_FORMAT(date_month, '%M %Y') AS month_name
+                                    FROM report_table
+                                    ORDER BY month_key DESC");
+
 
 // User Table
 $dataUsers = mysqli_query($conn, "SELECT * FROM users_table");

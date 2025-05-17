@@ -16,6 +16,23 @@
                 <div class="card-body">
                     <h5 class="card-title">Employee Salary Reports</h5>
 
+                    <form class="row g-3 mb-3" action="" method="post">
+                        <div class="col-sm-6">
+                            <select class="form-select" name="month_filter">
+                                <?php
+                                foreach ($dataMonth as $month) {
+                                ?>
+                                    <option value="<?php echo $month['month_key']; ?>" <?= ($month['month_key'] == $dateMonth) ? 'selected' : ''; ?>><?php echo $month['month_name']; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="submit" class="btn btn-primary" value="Search" name="filter">
+                        </div>
+                    </form>
+
                     <!-- Default Accordion -->
                     <div class="accordion" id="accordionPanelsStayOpenExample">
                         <?php
@@ -104,7 +121,7 @@
                                             <p class="fw-bold"><?php echo $row['manager_name']; ?></p>
                                         </div>
                                         <div class="text-end mt-5">
-                                            <a href="./report-print.php?id=<?php echo $row['nik']; ?>" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Print</a>
+                                            <a href="./report-print.php?id=<?php echo $row['empNik']; ?>" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Print</a>
                                         </div>
                                     </div>
                                 </div>
