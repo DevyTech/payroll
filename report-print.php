@@ -1,28 +1,27 @@
 <?php
 include "./config/connection.php";
 // Employee Table Join all Tables
-$dataSalary = mysqli_query($conn, "SELECT et.id,
-                                        et.name,
-                                        et.nik,
-                                        et.position,
-                                        et.employement_type,
-                                        et.base_salary,
-                                        et.dependent_status,
-                                        st.bpjs_deduction,
-                                        st.jht_deduction,
-                                        st.pph_deduction,
-                                        st.total_deduction,
-                                        st.amount,
-                                        st.status,
-                                        st.date_approve,
+$id = $_GET['id'];
+$dataReport = mysqli_query($conn, "SELECT et.name AS empName,
+                                        et.nik AS empNik,
+                                        et.position AS empPosition,
+                                        et.employement_type AS empType,
+                                        et.base_salary AS empSalary,
+                                        rt.pph_deduction AS empPph,
+                                        rt.bpjs_deduction AS empBpjs,
+                                        rt.jht_deduction AS empJht,
+                                        rt.total_deduction AS empTotal,
+                                        rt.amount,
+                                        rt.date_approve AS dateApprove,
                                         ut.name AS manager_name
                                     FROM
                                         employee_table et
-                                    JOIN
-                                        Salary_table st ON et.nik = st.nik
-                                    LEFT JOIN
-                                        users_table ut ON st.manager_id = ut.id
-                                    GROUP BY et.id");
+                                    INNER JOIN
+                                        report_table rt ON et.nik = rt.nik
+                                    INNER JOIN
+                                        users_table ut ON rt.manager_id = ut.id
+                                    WHERE et.nik = '$id'");
+$row = mysqli_fetch_assoc($dataReport);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,93 +55,85 @@ $dataSalary = mysqli_query($conn, "SELECT et.id,
 </head>
 
 <body>
-    <?php
-    foreach ($dataSalary as $row) {
-        if ($row['nik'] == $_GET['id']) {
-    ?>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12  m-auto">
-                        <p class="fs-5 text-center"><strong>SLIP GAJI KARYAWAN</strong></p>
-                        <p class="fs-6 text-center"><strong>Periode 1 Januari - 31 Januari 2025</strong></p>
-                        <table class="table table-borderless">
-                            <tr>
-                                <td width="25%">Nama</td>
-                                <td width="5%">:</td>
-                                <td><?php echo $row['name']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>NIK</td>
-                                <td>:</td>
-                                <td><?php echo $row['nik']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Jabatan</td>
-                                <td>:</td>
-                                <td><?php echo $row['position']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Status</td>
-                                <td>:</td>
-                                <td><?php echo $row['employement_type']; ?></td>
-                            </tr>
-                        </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-12  m-auto">
+                <p class="fs-5 text-center"><strong>SLIP GAJI KARYAWAN</strong></p>
+                <p class="fs-6 text-center"><strong>Periode 1 Januari - 31 Januari 2025</strong></p>
+                <table class="table table-borderless">
+                    <tr>
+                        <td width="25%">Nama</td>
+                        <td width="5%">:</td>
+                        <td><?php echo $row['empName']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>NIK</td>
+                        <td>:</td>
+                        <td><?php echo $row['empNik']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Jabatan</td>
+                        <td>:</td>
+                        <td><?php echo $row['empPosition']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>:</td>
+                        <td><?php echo $row['empType']; ?></td>
+                    </tr>
+                </table>
 
-                        <p class="fw-bold">Penghasilan</p>
-                        <table class="table table-borderless">
-                            <tr>
-                                <td width="40%">Gaji Pokok</td>
-                                <td width="5%">=</td>
-                                <td class="text-end"><?php echo number_format($row['base_salary'], 0, '.', '.'); ?></td>
-                            </tr>
-                        </table>
+                <p class="fw-bold">Penghasilan</p>
+                <table class="table table-borderless">
+                    <tr>
+                        <td width="40%">Gaji Pokok</td>
+                        <td width="5%">=</td>
+                        <td class="text-end"><?php echo number_format($row['empSalary'], 0, '.', '.'); ?></td>
+                    </tr>
+                </table>
 
-                        <p class="fw-bold">Potongan</p>
-                        <table class="table table-borderless">
-                            <tr>
-                                <td width="40%">PPH</td>
-                                <td width="5%">=</td>
-                                <td class="text-end"><?php echo number_format($row['pph_deduction'], 0, '.', '.'); ?></td>
-                            </tr>
-                            <tr>
-                                <td>BPJS</td>
-                                <td>=</td>
-                                <td class="text-end"><?php echo number_format($row['bpjs_deduction'], 0, '.', '.'); ?></td>
-                            </tr>
-                            <tr>
-                                <td>JHT</td>
-                                <td>=</td>
-                                <td class="text-end"><?php echo number_format($row['jht_deduction'], 0, '.', '.'); ?></td>
-                            </tr>
-                            <tr class="fw-bold">
-                                <td>Total Potongan</td>
-                                <td>=</td>
-                                <td class="text-end"><?php echo number_format($row['total_deduction'], 0, '.', '.'); ?></td>
-                            </tr>
-                        </table>
+                <p class="fw-bold">Potongan</p>
+                <table class="table table-borderless">
+                    <tr>
+                        <td width="40%">PPH</td>
+                        <td width="5%">=</td>
+                        <td class="text-end"><?php echo number_format($row['empPph'], 0, '.', '.'); ?></td>
+                    </tr>
+                    <tr>
+                        <td>BPJS</td>
+                        <td>=</td>
+                        <td class="text-end"><?php echo number_format($row['empBpjs'], 0, '.', '.'); ?></td>
+                    </tr>
+                    <tr>
+                        <td>JHT</td>
+                        <td>=</td>
+                        <td class="text-end"><?php echo number_format($row['empJht'], 0, '.', '.'); ?></td>
+                    </tr>
+                    <tr class="fw-bold">
+                        <td>Total Potongan</td>
+                        <td>=</td>
+                        <td class="text-end"><?php echo number_format($row['empTotal'], 0, '.', '.'); ?></td>
+                    </tr>
+                </table>
 
-                        <table class="table table-borderless fw-bold">
-                            <tr>
-                                <td width="40%">Gaji Bersih</td>
-                                <td width="5%">=</td>
-                                <td class="text-end"><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
-                            </tr>
-                        </table>
+                <table class="table table-borderless fw-bold">
+                    <tr>
+                        <td width="40%">Gaji Bersih</td>
+                        <td width="5%">=</td>
+                        <td class="text-end"><?php echo number_format($row['amount'], 0, '.', '.'); ?></td>
+                    </tr>
+                </table>
 
-                        <div class="text-end mt-5">
-                            <p>Manado, <?php echo date("d M Y", strtotime($row['date_approve'])); ?></p>
-                            <p>Manajer Keuangan</p>
-                            <br><br>
-                            <!-- <img src="signature.png" alt="signature" width="180px"> -->
-                            <p class="fw-bold"><?php echo $row['manager_name']; ?></p>
-                        </div>
-                    </div>
+                <div class="text-end mt-5">
+                    <p>Manado, <?php echo date("d M Y", strtotime($row['dateApprove'])); ?></p>
+                    <p>Manajer Keuangan</p>
+                    <br><br>
+                    <!-- <img src="signature.png" alt="signature" width="180px"> -->
+                    <p class="fw-bold"><?php echo $row['manager_name']; ?></p>
                 </div>
             </div>
-    <?php
-        }
-    }
-    ?>
+        </div>
+    </div>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
