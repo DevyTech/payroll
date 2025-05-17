@@ -79,7 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             pph_deduction='$pph',
                             total_deduction='$totalDeduction',
                             amount='$amount',
-                            date_month='$dateNow',
                             status='1'";
             $sqlSalary = mysqli_query($conn, $querySalary);
             if ($sqlSalary) {
