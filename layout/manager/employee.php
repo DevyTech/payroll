@@ -65,8 +65,8 @@
                                         <td><?php echo $row['gender']; ?></td>
                                         <td><?php echo $row['marital_status']; ?></td>
                                         <td><?php echo $row['contact']; ?></td>
-                                        <td><?php echo $row['position']; ?></td>
-                                        <td><?php echo $row['department']; ?></td>
+                                        <td><?php echo ucwords(str_replace("_", " ", $row['position'])); ?></td>
+                                        <td><?php echo ucwords(str_replace("_", " ", $row['department'])); ?></td>
                                         <td><?php echo $row['employement_type']; ?></td>
                                         <td><?php echo $row['hire_date']; ?></td>
                                         <td><?php echo $row['employee_id']; ?></td>
