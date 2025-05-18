@@ -117,15 +117,92 @@
                     <!-- Vertical Form -->
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="inputPosition" class="form-label">Position</label>
-                            <select class="form-select" id="inputPosition" name="position" required>
-                                <option selected hidden>Select Position</option>
-                                <option value="Head of Accounting Departement">Head of Accounting Departement</option>
+                            <label for="inputDepartment" class="form-label">Departement</label>
+                            <select class="form-select" id="inputDepartment" name="departement" required>
+                                <option hidden selected>Select Departement</option>
+                                <option value="finance">Finance</option>
+                                <option value="hr">HR</option>
+                                <option value="production">Production</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="r&d">R&D</option>
+                                <option value="it">IT</option>
+                                <option value="internal audit">Internal Audit</option>
+                                <option value="logistic">Logistic</option>
+                                <option value="customer_service">Customer Service</option>
                             </select>
                         </div>
                         <div class="col-12">
-                            <label for="inputDepartment" class="form-label">Departement</label>
-                            <input type="text" class="form-control" id="inputDepartment" name="departement" required autocomplete="off">
+                            <label for="inputPosition" class="form-label">Position</label>
+                            <!-- <select class="form-select" id="inputPosition" name="position" required>
+                                <option selected hidden>Select Position</option>
+                                <option value="Head of Accounting Departement">Head of Accounting Departement</option>
+                            </select> -->
+                            <select class="form-select" name="position" id="inputPosition">
+                                <optgroup label="Keuangan & Akuntansi">
+                                    <option value="cfo">Chief Financial Officer (CFO)</option>
+                                    <option value="finance_manager">Finance Manager</option>
+                                    <option value="senior_accountant">Senior Accountant</option>
+                                    <option value="financial_analyst">Financial Analyst</option>
+                                </optgroup>
+
+                                <optgroup label="Sumber Daya Manusia">
+                                    <option value="hr_manager">HR Manager</option>
+                                    <option value="talent_acquisition_specialist">Talent Acquisition Specialist</option>
+                                    <option value="learning_development_officer">Learning & Development Officer</option>
+                                    <option value="hr_generalist">HR Generalist</option>
+                                </optgroup>
+
+                                <optgroup label="Operasional / Produksi">
+                                    <option value="operations_manager">Operations Manager</option>
+                                    <option value="production_supervisor">Production Supervisor</option>
+                                    <option value="quality_control_inspector">Quality Control Inspector</option>
+                                    <option value="continuous_improvement_engineer">Continuous Improvement Engineer</option>
+                                </optgroup>
+
+                                <optgroup label="Pemasaran & Penjualan">
+                                    <option value="marketing_manager">Marketing Manager</option>
+                                    <option value="brand_pr_specialist">Brand/PR Specialist</option>
+                                    <option value="sales_manager">Sales Manager</option>
+                                    <option value="account_executive">Account Executive</option>
+                                </optgroup>
+
+                                <optgroup label="Riset & Pengembangan (R&amp;D)">
+                                    <option value="rnd_manager">R&amp;D Manager</option>
+                                    <option value="product_development_engineer">Product Development Engineer</option>
+                                    <option value="research_scientist">Research Scientist</option>
+                                    <option value="innovation_specialist">Innovation Specialist</option>
+                                </optgroup>
+
+                                <optgroup label="Teknologi Informasi (TI)">
+                                    <option value="cio_it_manager">Chief Information Officer (CIO) / IT Manager</option>
+                                    <option value="network_infrastructure_admin">Network / Infrastructure Administrator</option>
+                                    <option value="software_developer">Software Developer</option>
+                                    <option value="it_support_specialist">IT Support Specialist</option>
+                                </optgroup>
+
+                                <optgroup label="Logistik & Supply Chain">
+                                    <option value="supply_chain_manager">Supply Chain Manager</option>
+                                    <option value="logistics_coordinator">Logistics Coordinator</option>
+                                    <option value="procurement_planner">Procurement Planner</option>
+                                    <option value="warehouse_supervisor">Warehouse Supervisor</option>
+                                </optgroup>
+
+                                <optgroup label="Manajemen Risiko & Audit Internal">
+                                    <option value="chief_audit_exec">Chief Audit Executive</option>
+                                    <option value="risk_compliance_manager">Risk & Compliance Manager</option>
+                                    <option value="internal_auditor">Internal Auditor</option>
+                                    <option value="risk_analyst">Risk Analyst</option>
+                                </optgroup>
+
+                                <optgroup label="Customer Service / Layanan Pelanggan">
+                                    <option value="customer_service_manager">Customer Service Manager</option>
+                                    <option value="customer_support_rep">Customer Support Representative</option>
+                                    <option value="call_center_supervisor">Call Center Supervisor</option>
+                                    <option value="tech_support_specialist">Technical Support Specialist</option>
+                                </optgroup>
+                            </select>
+
+
                         </div>
                         <div class="col-12">
                             <label for="inputEmployementType" class="form-label">EmployementType</label>
