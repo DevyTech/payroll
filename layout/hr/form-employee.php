@@ -133,11 +133,8 @@
                         </div>
                         <div class="col-12">
                             <label for="inputPosition" class="form-label">Position</label>
-                            <!-- <select class="form-select" id="inputPosition" name="position" required>
-                                <option selected hidden>Select Position</option>
-                                <option value="Head of Accounting Departement">Head of Accounting Departement</option>
-                            </select> -->
                             <select class="form-select" name="position" id="inputPosition">
+                                <option selected hidden>Select Position</option>
                                 <optgroup label="Keuangan & Akuntansi">
                                     <option value="cfo">Chief Financial Officer (CFO)</option>
                                     <option value="finance_manager">Finance Manager</option>
