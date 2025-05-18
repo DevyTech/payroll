@@ -86,15 +86,26 @@
     </li><!-- End Dashboard Nav -->
 
     <li class="nav-item">
-      <a class="nav-link" href="?page=attendence">
-        <i class="bi bi-layout-text-window-reverse"></i>
-        <span>Attendence</span>
+      <a class="nav-link collapsed" data-bs-target="#attendence-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-layout-text-window-reverse"></i><span>Attendence</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
+      <ul id="attendence-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="index.php?page=form-attendence">
+            <i class="bi bi-circle"></i><span>Form Attendence</span>
+          </a>
+        </li>
+        <li>
+          <a href="index.php?page=attendence">
+            <i class="bi bi-circle"></i><span>Attendence Data</span>
+          </a>
+        </li>
+      </ul>
     </li><!-- End Attendence Nav -->
 
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#employee-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-person-vcard"></i></i><span>Employee</span><i class="bi bi-chevron-down ms-auto"></i>
+        <i class="bi bi-person-vcard"></i><span>Employee</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="employee-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>

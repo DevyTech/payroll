@@ -63,7 +63,7 @@
                                                 <th><?php echo $countRows++; ?></th>
                                                 <td><?php echo $row['name']; ?></td>
                                                 <td><?php echo $row['nik']; ?></td>
-                                                <td><?php echo $row['position']; ?></td>
+                                                <td><?php echo ucwords(str_replace("_", " ", $row['position'])); ?></td>
                                                 <td><?php echo $row['employement_type']; ?></td>
                                                 <td><?php echo number_format($row['base_salary'], 0, '.', '.'); ?></td>
                                                 <td><?php echo $row['days_work'] . " Days"; ?></td>

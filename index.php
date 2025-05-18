@@ -133,6 +133,9 @@ $countHR = mysqli_num_rows($dataUserHR);
                 case 'dashboard':
                     include './layout/hr/dashboard.php';
                     break;
+                case 'form-attendence':
+                    include './layout/hr/form-attendence.php';
+                    break;
                 case 'attendence':
                     include './layout/hr/attendence.php';
                     break;

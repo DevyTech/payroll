@@ -10,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['employeeId'];
     $entry = $_POST['entry'];
     $exit = $_POST['exit'];
-    $dateNow = date('Y-m-d');
+    $date = $_POST['date'];
 
     // Check if data already exist;
-    $scope = mysqli_query($conn, "SELECT * FROM attendence_table WHERE employee_id = '$id' AND date = '$dateNow'");
+    $scope = mysqli_query($conn, "SELECT * FROM attendence_table WHERE employee_id = '$id' AND date = '$date'");
     $count = mysqli_num_rows($scope);
 
     if ($count > 0) {
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 employee_id = '$id',
                 entry_time = '$entry',
                 exit_time = '$exit',
-                date = '$dateNow'";
+                date = '$date'";
         $sql = mysqli_query($conn, $query);
         if ($sql) {
             header("Location:../index.php?page=attendence&submitattendence=success");
