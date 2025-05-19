@@ -16,10 +16,10 @@
                     <h5 class="card-title">Employee Attendence</h5>
 
                     <div class="row mb-3">
-                        <label for="inputEmployee" class="col-sm-2 col-form-label">Employee Name</label>
+                        <label for="inputEmployee" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
                             <select class="form-select" id="inputEmployee" name="employeeId" required>
-                                <option selected hidden></option>
+                                <option selected hidden>Select Employee Name</option>
                                 <?php
                                 foreach ($dataEmployee as $row) {
                                 ?>
