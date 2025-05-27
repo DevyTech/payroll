@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 17 Bulan Mei 2025 pada 07.44
+-- Waktu pembuatan: 27 Bulan Mei 2025 pada 10.34
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -91,16 +91,6 @@ CREATE TABLE `employee_table` (
   `bank_account_number` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `employee_table`
---
-
-INSERT INTO `employee_table` (`id`, `name`, `nik`, `address`, `date_of_birth`, `gender`, `marital_status`, `contact`, `position`, `department`, `employement_type`, `hire_date`, `employee_id`, `npwp`, `dependent_status`, `bpjs_number`, `base_salary`, `bank_account_number`) VALUES
-(19, 'Rangga', 7171111111111111, 'Manado', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-6888419922156506', 7171111111111111, 'TK0', '3333333333333', 5000000, '2222222222222222'),
-(20, 'Rafael', 7171222222222222, 'Langowan', '2025-05-01', 'male', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-6130507071954146', 7171222222222222, 'TK1', '2222222222222', 7000000, '3333333333333333'),
-(21, 'Virgil', 7171333333333333, 'Manado', '2025-05-01', 'female', 'married', 111111111111, 'Head of Accounting Departement', 'Finance', 'Permanent', '2025-05-31', 'E-9693153566291456', 7171333333333333, 'K/1', '2222222222222', 6000000, '3333333333333333'),
-(27, 'Aldy', 1234567890000000, 'Manado', '2025-05-01', 'male', 'single', 111111111111, 'Head of Accounting Departement', 'Developer', 'Permanent', '2025-05-31', 'E-6741779547219039', 1234567890000000, 'TK2', '3333333333333', 8000000, '2222222222222222');
-
 -- --------------------------------------------------------
 
 --
@@ -120,19 +110,6 @@ CREATE TABLE `report_table` (
   `date_month` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `report_table`
---
-
-INSERT INTO `report_table` (`id`, `nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `manager_id`, `date_approve`, `date_month`) VALUES
-(1, 7171111111111111, 50000, 250000, 10000, 310000, 4690000, 7, '2025-04-15', '2025-04-15'),
-(2, 7171222222222222, 70000, 350000, 255750, 675750, 6324250, 7, '2025-04-15', '2025-04-15'),
-(3, 7171333333333333, 60000, 300000, 58500, 418500, 5581500, 7, '2025-04-15', '2025-04-15'),
-(9, 7171111111111111, 50000, 250000, 10000, 310000, 4690000, 7, '2025-05-15', '2025-05-15'),
-(10, 7171222222222222, 70000, 350000, 255750, 675750, 6324250, 7, '2025-05-15', '2025-05-15'),
-(11, 7171333333333333, 60000, 300000, 58500, 418500, 5581500, 7, '2025-05-15', '2025-05-15'),
-(13, 1234567890000000, 80000, 400000, 340500, 820500, 7179500, 2, '2025-05-17', '2025-05-17');
-
 -- --------------------------------------------------------
 
 --
@@ -151,16 +128,6 @@ CREATE TABLE `salary_table` (
   `date_approve` date DEFAULT NULL,
   `date_month` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `salary_table`
---
-
-INSERT INTO `salary_table` (`nik`, `bpjs_deduction`, `jht_deduction`, `pph_deduction`, `total_deduction`, `amount`, `status`, `manager_id`, `date_approve`, `date_month`) VALUES
-(1234567890000000, 80000, 400000, 340500, 820500, 7179500, '1', NULL, NULL, '2025-05-17'),
-(7171111111111111, 50000, 250000, 10000, 310000, 4690000, '1', NULL, NULL, '2025-05-15'),
-(7171222222222222, 70000, 350000, 255750, 675750, 6324250, '1', NULL, NULL, '2025-05-15'),
-(7171333333333333, 60000, 300000, 58500, 418500, 5581500, '1', NULL, NULL, '2025-05-15');
 
 -- --------------------------------------------------------
 
@@ -182,11 +149,7 @@ CREATE TABLE `users_table` (
 --
 
 INSERT INTO `users_table` (`id`, `name`, `username`, `password`, `role`, `signature`) VALUES
-(1, 'Devaldy Bawotong', 'admin', '$2y$10$fnPRRtyXjr4ZBOhVFOaHT.3/8VsfqzuwJCrKVBX44F8OKM99xR0o2', 'admin', ''),
-(2, 'Rangga Satali', 'angga', '$2y$10$eTOFPfQxfvLBtZgv4wziPu6BnoUF/uAHwIbSDSX7jhrJRpyErfLRW', 'manager', ''),
-(3, 'Prabowo', 'prabowo', '$2y$10$vtAdu6NRnKyFpBiSmo2xkOSpkyD1TAMJUh4emi5x77kMZrvq9drKi', 'human resource', ''),
-(7, 'Jokowi', 'joko', '$2y$10$LGd91HEIsN4ThQQwBx1.heueRNNH4Zl53zsYRCOpba6nFMl9.6qKS', 'manager', ''),
-(8, 'Megawati', 'mega', '$2y$10$A3bMU51Px6BGtIITCoZ9I.owP8rlEx4vz7fJKWw1k9cbmbaQkRGae', 'human resource', '');
+(1, 'Devaldy Bawotong', 'admin', '$2y$10$fnPRRtyXjr4ZBOhVFOaHT.3/8VsfqzuwJCrKVBX44F8OKM99xR0o2', 'admin', '');
 
 --
 -- Indexes for dumped tables
@@ -237,19 +200,19 @@ ALTER TABLE `users_table`
 -- AUTO_INCREMENT untuk tabel `attendence_table`
 --
 ALTER TABLE `attendence_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `employee_table`
 --
 ALTER TABLE `employee_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `report_table`
 --
 ALTER TABLE `report_table`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `users_table`

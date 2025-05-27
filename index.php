@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require './config/connection.php';
 session_start();
 if (!isset($_SESSION['status_login'])) {
@@ -42,7 +43,7 @@ $dataSalary = mysqli_query($conn, "SELECT et.id AS emp_id,
                                     LEFT JOIN
                                         attendence_table at ON et.id = at.employee_id
                                     JOIN
-                                        Salary_table st ON et.nik = st.nik
+                                        salary_table st ON et.nik = st.nik
                                     LEFT JOIN
                                         users_table ut ON st.manager_id = ut.id
                                     GROUP BY et.id");
@@ -181,7 +182,10 @@ $countHR = mysqli_num_rows($dataUserHR);
         }
         ?>
     </main>
-    <?php include './component/footer.php'; ?>
+    <?php
+    include './component/footer.php';
+    ob_end_flush();
+    ?>
 </body>
 
 </html>

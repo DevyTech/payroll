@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require '../config/connection.php';
 session_start();
 echo '<pre>';
@@ -38,3 +39,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = mysqli_query($conn, $query);
     header("Location:../index.php?page=$location");
 }
+ob_end_flush();

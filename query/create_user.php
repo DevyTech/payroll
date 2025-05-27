@@ -1,6 +1,6 @@
 <?php
+ob_start();
 require '../config/connection.php';
-
 echo '<pre>';
 print_r($_POST);
 echo '</pre>';
@@ -50,3 +50,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo $msg;
     }
 }
+ob_end_flush();
