@@ -242,6 +242,6 @@
 
         </div>
 
-        <input type="submit" class="btn btn-primary">
+        <input type="submit" class="btn btn-primary" value="Submit" name="submit">
     </form>
 </section>

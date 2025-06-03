@@ -74,14 +74,21 @@
         <i class="bi bi-person-add"></i>
         <span>Form User</span>
       </a>
-    </li><!-- End Attendence Nav -->
+    </li>
 
     <li class="nav-item">
       <a class="nav-link" href="?page=users">
         <i class="bi bi-person-lines-fill"></i>
         <span>User Data</span>
       </a>
-    </li><!-- End Attendence Nav -->
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="?page=employee">
+        <i class="bi bi-person-lines-fill"></i>
+        <span>Employee Data</span>
+      </a>
+    </li>
 
   </ul>
 

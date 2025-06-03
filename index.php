@@ -125,6 +125,9 @@ $countHR = mysqli_num_rows($dataUserHR);
                 case 'update-user':
                     include './layout/admin/form-update-user.php';
                     break;
+                case 'employee':
+                    include './layout/admin/employee.php';
+                    break;
                 default:
                     include './pages-error-404.php';
                     break;
